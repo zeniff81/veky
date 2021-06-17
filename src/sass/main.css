@@ -301,9 +301,26 @@
 }
 
 .footer .links {
-  margin: 1rem 0;
+  padding: 0;
   line-height: 2rem;
   text-align: center;
+  list-style-type: none;
+}
+
+.footer .links li {
+  transition: background-color 120ms;
+  padding: 0 0.5rem;
+}
+
+.footer .links a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  text-align: left;
+}
+
+.footer .links li:hover {
+  background-color: #ed2f59;
 }
 
 .footer .social-media {
