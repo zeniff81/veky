@@ -7,17 +7,12 @@ dotenv.config();
 function Products() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
+    console.log(process.env.REACT_APP_PRODUCTS_URL);
+
     axios.get(process.env.REACT_APP_PRODUCTS_URL).then(arrProducts => {
       setProducts(arrProducts.data);
       console.log(arrProducts.data);
     });
-
-    console.log(process.env);
-
-    // axios
-    //   .get("https://veky-server.herokuapp.com/products")
-    //   .then(res => console.log(res))
-    //   .catch(err => console.log(err));
   }, []);
 
   return (
