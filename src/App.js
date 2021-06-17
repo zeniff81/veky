@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from "./components/footer/Footer";
-import Home from "./pages/home/Home";
-import Products from "./pages/Products";
 import MenuMobile from "./components/menu/MenuMobile";
 import About from "./pages/home/About";
 import Contact from "./pages/home/Contact";
+import Home from "./pages/home/Home";
+import Products from "./pages/Products";
 import "./sass/main.css";
 
 function App() {

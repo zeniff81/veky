@@ -27,10 +27,9 @@ function MenuMobile() {
             </div>
           </Link>
 
-          <Link to='/cart'>
+          <Link to='/products'>
             <div className='menumobile-icons-item'>
-              <div>Carrito</div>
-              <CartIcon />
+              <div>Productos</div>
             </div>
           </Link>
         </div>
