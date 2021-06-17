@@ -3,21 +3,14 @@ import "./App.css";
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <h2>npm install axios dotenv uuid</h2>
-        </a>
-      </header>
+    <div className='app'>
+      <ul>
+        <li>components</li>
+        <li>firebase</li>
+        <li>pages</li>
+        <li>sass</li>
+        <li>env</li>
+      </ul>
     </div>
   );
 }

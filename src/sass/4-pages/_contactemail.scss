@@ -1,0 +1,39 @@
+.contact-email {
+  background-color: white;
+  border: 2px solid tint($color-primary, 60%);
+  margin: 1rem 0;
+  width: 320px;
+
+  .title {
+    color: tint($color-primary, 60%);
+    font-size: 1.7rem;
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  input,
+  textarea {
+    margin: 1rem;
+    border: 1px solid tint($color-primary, 60%);
+    padding: 0.3rem;
+    color: gray;
+  }
+}
+.form-contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-footer {
+  background: tint($color-primary, 60%);
+  padding: 1.4rem;
+  text-align: center;
+
+  a {
+    color: white;
+    text-decoration: none;
+    background-color: $color-primary;
+    padding: 0.3rem 2rem;
+    border-radius: 0.4rem;
+  }
+}
