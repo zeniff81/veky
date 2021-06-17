@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import items from "./MenusItems";
 
-function useOutsideAlerter(ref) {
+function useOutsideAlerter(ref, action) {
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
      */
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
-        alert("You clicked outside of me!");
+        action();
       }
     }
 
@@ -26,7 +26,9 @@ function Burger({ theme }) {
   const [activeClass, setActiveClass] = useState("");
   const [color, setColor] = useState("#484848");
   const burgerRef = useRef(null);
-  useOutsideAlerter(burgerRef);
+
+  const setActiveToFalse = () => setActive("");
+  useOutsideAlerter(burgerRef, setActiveToFalse);
 
   useEffect(() => {
     if (theme === "dark") setColor("#484848");
