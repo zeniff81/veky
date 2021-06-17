@@ -12,11 +12,13 @@ function AdminProducts() {
   const [search, setSearch] = useState("");
   const searchButtonRef = useRef();
 
-  useEffect(async () => {
-    const request = await axios.get(process.env.REACT_APP_PRODUCTS_URL);
-    const data = request.data;
-    setProducts(data);
-    setFilteredProducts(data);
+  useEffect(() => {
+    async () => {
+      const request = await axios.get(process.env.REACT_APP_PRODUCTS_URL);
+      const data = request.data;
+      setProducts(data);
+      setFilteredProducts(data);
+    };
   }, []);
 
   const closeProductUploader = () => {
