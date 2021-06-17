@@ -1,11 +1,34 @@
-import React, { useState, useEffect } from "react";
-import onClickOutside from "react-onclickoutside";
+import React, { useState, useEffect, useRef } from "react";
 import items from "./MenusItems";
+
+function useOutsideAlerter(ref, action) {
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        action();
+      }
+    }
+
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref]);
+}
 
 function Burger({ theme }) {
   const [active, setActive] = useState(false);
   const [activeClass, setActiveClass] = useState("");
   const [color, setColor] = useState("#484848");
+  const burgerRef = useRef(null);
+
+  const setActiveToFalse = () => setActive("");
+  useOutsideAlerter(burgerRef, setActiveToFalse);
 
   useEffect(() => {
     if (theme === "dark") setColor("#484848");
@@ -21,10 +44,8 @@ function Burger({ theme }) {
     active ? setActiveClass("") : setActiveClass("");
   };
 
-  Burger.handleClickOutside = () => setActive("");
-
   return (
-    <div className='burger' onClick={toggleMenu}>
+    <div className='burger' ref={burgerRef} onClick={toggleMenu}>
       <div
         className={"line line1 " + activeClass}
         style={{
@@ -52,8 +73,4 @@ function Burger({ theme }) {
   );
 }
 
-const clickOutsideConfig = {
-  handleClickOutside: () => Burger.handleClickOutside
-};
-
-export default onClickOutside(Burger, clickOutsideConfig);
+export default Burger;
