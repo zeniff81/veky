@@ -1,16 +1,14 @@
 import React from "react";
-import About from "./About";
-import Contact from "./Contact";
 import HomeMain from "./HomeMain";
-import HomeProducts from "./HomeProducts";
+// import About from "./About";
+// import Contact from "./Contact";
 
 function Home() {
   return (
     <div className='home'>
       <HomeMain />
-      <HomeProducts />
-      <About />
-      <Contact />
+      {/* <About /> */}
+      {/* <Contact /> */}
     </div>
   );
 }

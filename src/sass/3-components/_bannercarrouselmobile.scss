@@ -1,0 +1,33 @@
+.bannercarrouselmobile {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  .img-background {
+    height: auto;
+    position: absolute;
+    transform: translateY(-100px);
+    width: 100%;
+    z-index: -1 !important;
+    transition: all 600ms;
+
+    &.hideElements {
+      opacity: 0;
+    }
+  }
+
+  .img-logo {
+    position: absolute;
+    height: 150px;
+    left: 1remz;
+    top: 1rem;
+    width: auto;
+    z-index: 5;
+    transition: all 400ms;
+
+    &.hideElements {
+      opacity: 0;
+      transform: translate(25px, 3px);
+    }
+  }
+}

@@ -3,7 +3,6 @@ import logo from "../../assets/img/menu-logo.png";
 import { Link } from "react-router-dom";
 import Burger from "./Burger";
 import agent from "../../assets/img/agent.svg";
-import CartIcon from "../../components/CartIcon";
 import items from "./MenusItems";
 
 function MenuMobile() {
