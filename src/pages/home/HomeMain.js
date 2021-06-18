@@ -1,24 +1,12 @@
 import React from "react";
-import phone from "../../assets/img/phone.svg";
-import woman from "../../assets/img/woman-bg.png";
-import logo1 from "../../assets/img/logo1.png";
 import logo2 from "../../assets/img/tiempo2.svg";
-import heart from "../../assets/img/heart.svg";
 import Product from "../../components/product/Product";
+import BannerCarrouselMobile from "./BannerCarrousel/BannerCarrouselMobile";
 
 function Home() {
   return (
     <div className='homemain'>
-      {/* woman */}
-      <img src={woman} alt='' className='woman' />
-
-      {/* logo1 */}
-      <img src={logo1} alt='logo1' className='logo1' />
-
-      {/* heart */}
-      <div className='heart-container'>
-        <img src={heart} alt='heart' className='animate-heart heart' />
-      </div>
+      <BannerCarrouselMobile />
 
       {/* stripe */}
       <div className='stripe-logo'>
@@ -30,15 +18,7 @@ function Home() {
       </div>
       {/* stripe */}
 
-      <div className='home-bottom'>
-        <div className='products'>
-          <Product />
-        </div>
-        <div className='phone'>
-          <img src={phone} alt='' />
-          <div className='text'>809-654-5496</div>
-        </div>
-      </div>
+      <Product />
     </div>
   );
 }
