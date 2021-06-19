@@ -16,7 +16,6 @@ function MenuMobile() {
         </Link>
         {/* center icons */}
         <ul className='menumobile-icons icons-center'>{items.map(el => el)}</ul>
-
         {/* right icons */}
         <div className='menumobile-icons'>
           <Link to='/contact'>
@@ -25,14 +24,12 @@ function MenuMobile() {
               <img src={agent} alt='logo contactenos' />{" "}
             </div>
           </Link>
-
           <Link to='/products'>
             <div className='menumobile-icons-item'>
               <div>Productos</div>
             </div>
           </Link>
         </div>
-
         {/* burger */}
         <Burger theme='light' />
       </nav>

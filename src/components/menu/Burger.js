@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import items from "./MenusItems";
+import app from "../../firebase/app";
 
 function useOutsideAlerter(ref, action) {
   useEffect(() => {
@@ -65,9 +66,15 @@ function Burger({ theme }) {
         }}
       ></div>
 
-      {/* options */}
+      {/* menu options */}
       <ul className={`menuoptions ${active ? "menuoptions-visible" : ""}`}>
         {items.map(el => el)}
+        <hr />
+        <li>
+          <a href='/' onClick={() => app.auth().signOut()}>
+            Salir
+          </a>
+        </li>
       </ul>
     </div>
   );

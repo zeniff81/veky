@@ -5,6 +5,7 @@ import firebase from "firebase/app";
 
 // Add the Firebase products that you want to use
 require("firebase/storage");
+require("firebase/auth");
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {

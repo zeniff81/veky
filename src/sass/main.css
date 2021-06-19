@@ -1146,6 +1146,17 @@ a {
   margin: 2rem 0;
 }
 
+.homemain .contact-number {
+  text-align: center;
+  line-height: 0.5rem;
+}
+
+.homemain .contact-number img {
+  height: 1.3rem;
+  margin: 0 0.5rem;
+  width: auto;
+}
+
 @media screen and (min-width: 765px) {
   .homemain {
     grid-template-rows: 400px 200px auto;
