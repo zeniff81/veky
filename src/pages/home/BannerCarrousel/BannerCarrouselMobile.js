@@ -50,13 +50,15 @@ function BannerCarrouselMobile() {
         height='480'
         alt=''
       />
-      <img
-        className={`img-logo ${hideElements && "hideElements"}`}
-        src={logos[index]}
-        width='384'
-        height='480'
-        alt=''
-      />
+      <div className={`logo-container ${hideElements && "hideElements"}`}>
+        <img
+          className={`img-logo`}
+          src={logos[index]}
+          width='384'
+          height='480'
+          alt=''
+        />
+      </div>
     </div>
   );
 }

@@ -792,19 +792,32 @@ a {
   opacity: 0;
 }
 
-.bannercarrouselmobile .img-logo {
-  position: absolute;
-  height: 150px;
+.bannercarrouselmobile .logo-container {
   left: 1remz;
+  position: absolute;
   top: 1rem;
-  width: auto;
-  z-index: 5;
   transition: all 400ms;
+  z-index: 1;
 }
 
-.bannercarrouselmobile .img-logo.hideElements {
+.bannercarrouselmobile .logo-container.hideElements {
   opacity: 0;
   transform: translate(25px, 3px);
+}
+
+.bannercarrouselmobile .logo-container .img-logo {
+  animation: animate-logo 6s ease alternate infinite;
+  height: 150px;
+  width: auto;
+}
+
+@keyframes animate-logo {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
 
 .about {
@@ -1281,4 +1294,31 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+.login {
+  text-align: center;
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.login label {
+  display: block;
+  margin: 1rem 0;
+}
+
+.login button {
+  display: block;
+  margin-top: 2rem;
+}
+
+.login .registrarse {
+  color: #1080a7;
+  margin: 1rem 0;
 }

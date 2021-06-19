@@ -16,18 +16,31 @@
     }
   }
 
-  .img-logo {
-    position: absolute;
-    height: 150px;
+  .logo-container {
     left: 1remz;
+    position: absolute;
     top: 1rem;
-    width: auto;
-    z-index: 5;
     transition: all 400ms;
+    z-index: 1;
 
     &.hideElements {
       opacity: 0;
       transform: translate(25px, 3px);
+    }
+
+    .img-logo {
+      animation: animate-logo 6s ease alternate infinite;
+      height: 150px;
+      width: auto;
+    }
+  }
+
+  @keyframes animate-logo {
+    0% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1.1);
     }
   }
 }

@@ -8,22 +8,31 @@ import Home from "./pages/home/Home";
 import Admin from "./pages/admin/Admin";
 import "./sass/main.css";
 import Products from "./pages/Products";
+import { AuthProvider } from "./auth/Auth";
+import PrivateRoute from "./auth/PrivateRoute";
+import Login from "./auth/Login";
+import SignUp from "./auth/SignUp";
 
 function App() {
   return (
-    <Router>
-      <div className='app'>
-        <MenuMobile />
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/contact' component={Contact} />
-          <Route path='/about' component={About} />
-          <Route path='/products' component={Products} />
-          <Route path='/admin' component={Admin} />
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className='app'>
+          <MenuMobile />
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <PrivateRoute path='/loginpage' exact component={Login} />
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={SignUp} />
+            <Route path='/contact' component={Contact} />
+            <Route path='/about' component={About} />
+            <Route path='/products' component={Products} />
+            <Route path='/admin' component={Admin} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
