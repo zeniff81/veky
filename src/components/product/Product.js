@@ -4,7 +4,7 @@ import dummy from "../../assets/img/dummy.png";
 function Product(props) {
   const placeOrder = () => {
     alert(
-      "\n\n¡Pronto tendremos carrito de compras en línea! \n\nPor ahora, llámanos o escríbenos por WhatsApp al 849-751-7666."
+      "\n\n¡Pronto tendremos carrito de compras en línea! \n\nPor ahora, llámanos o escríbenos por WhatsApp al 809-983-7518."
     );
   };
   return (

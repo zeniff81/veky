@@ -14,7 +14,7 @@ function Channels() {
           <div className='channel-img'>
             <img src={phone} alt='' />
           </div>
-          <div className='channel-data'>809-475-4228</div>
+          <div className='channel-data'>809-983-7518</div>
         </div>
         <div className='channel'>
           <div className='channel-img'>
@@ -26,7 +26,7 @@ function Channels() {
           <div className='channel-img'>
             <img src={whatsapp} alt='' />
           </div>
-          <div className='channel-data'>809-475-4228</div>
+          <div className='channel-data'>809-983-7518</div>
         </div>
         <div className='channel'>
           <div className='channel-img'>

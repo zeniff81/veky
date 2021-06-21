@@ -1,6 +1,6 @@
 import React from "react";
 import SocialMedia from "../socialmedia/SocialMedia";
-import items from "../menu/MenusItems";
+import MenusItems from "../menu/MenusItems";
 
 function Footer() {
   return (
@@ -9,7 +9,9 @@ function Footer() {
       <div className='title'>
         VE'KY <sup>®</sup>
       </div>
-      <ul className='links'>{items.map((el) => el)}</ul>
+      <ul className='links'>
+        <MenusItems />
+      </ul>
       <SocialMedia color={"white"} />
       <hr />
 

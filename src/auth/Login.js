@@ -1,53 +1,52 @@
-import React, { useCallback, useContext } from "react";
-import { withRouter, Redirect } from "react-router";
-import { Link } from "react-router-dom";
-import app from "../firebase/app";
-import { AuthContext } from "./Auth.js";
+import React, { useState } from "react";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
+import { useAuth } from "./Auth";
 
-const Login = ({ history }) => {
-  const handleLogin = useCallback(
-    async event => {
-      event.preventDefault();
-      const { email, password } = event.target.elements;
-      try {
-        await app
-          .auth()
-          .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/");
-      } catch (error) {
-        alert(error);
-      }
-    },
-    [history]
-  );
+function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
+  const { setCurrentName, setCurrentUsername, setCurrentRole } = useAuth();
 
-  const { currentUser } = useContext(AuthContext);
+  const submitLogin = async e => {
+    e.preventDefault();
+    const response = await axios.post("http://localhost:8080/users/login", {
+      username,
+      password
+    });
 
-  if (currentUser) {
-    return <Redirect to='/' />;
-  }
+    setCurrentName(response.data.data.name);
+    setCurrentUsername(response.data.data.username);
+    setCurrentRole(response.data.data.role);
 
-  return (
+    // redirect ?
+    if (response.data.response === "LOGIN SUCCESS") setRedirect(true);
+  };
+
+  return redirect ? (
+    <Redirect to='/' />
+  ) : (
     <div className='login'>
       <h1>Iniciar sesión</h1>
-      <form onSubmit={handleLogin}>
-        <label>
-          <div className='label'>Email</div>
-          <input name='email' type='email' placeholder='Email' />
-        </label>
-        <label>
-          <div className='label'>Contraseña</div>
-          <input name='password' type='password' placeholder='Contraseña' />
-        </label>
-        <button className='btn btn-primary' type='submit'>
-          Entrar
-        </button>
+
+      <form>
+        <input
+          type='text'
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+          placeholder='Nomdre de usuario'
+        />
+        <input
+          type='password'
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          placeholder='Contraseña'
+        />
+        <button onClick={submitLogin}>Entrar</button>
       </form>
-      <Link className='registrarse' to='/signup'>
-        Registrarse
-      </Link>
     </div>
   );
-};
+}
 
-export default withRouter(Login);
+export default Login;

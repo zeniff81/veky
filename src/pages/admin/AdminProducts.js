@@ -13,12 +13,14 @@ function AdminProducts() {
   const searchButtonRef = useRef();
 
   useEffect(() => {
-    async () => {
+    const fetchProducts = async () => {
       const request = await axios.get(process.env.REACT_APP_PRODUCTS_URL);
       const data = request.data;
       setProducts(data);
       setFilteredProducts(data);
     };
+
+    fetchProducts();
   }, []);
 
   const closeProductUploader = () => {

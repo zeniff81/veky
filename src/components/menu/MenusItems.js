@@ -1,25 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useAuth } from "../../auth/Auth";
 const { Link } = require("react-router-dom");
 
-const routes = [
-  { caption: "Inicio", route: "/" },
-  { caption: "Productos", route: "/products" },
-  { caption: "Contáctenos", route: "/contact" },
-  { caption: "Nosotros", route: "/about" },
-  { caption: "Admin", route: "/admin" }
-];
+function MenusItems() {
+  const { currentRole } = useAuth();
 
-const items = [];
+  const [items, setItems] = useState([]);
 
-routes.map(item => {
-  const i = (
-    <li key={uuidv4()}>
-      <Link to={item.route}>{item.caption}</Link>
-    </li>
+  useEffect(() => {
+    setItems([
+      { caption: "Inicio", route: "/" },
+      { caption: "Productos", route: "/products" },
+      { caption: "Contáctenos", route: "/contact" },
+      { caption: "Nosotros", route: "/about" }
+    ]);
+
+    if (currentRole.includes("admin")) {
+      setItems(prev => [...prev, { caption: "Admin", route: "/admin" }]);
+    }
+  }, [currentRole]);
+
+  return (
+    <>
+      {items.map(item => {
+        return (
+          <li key={uuidv4()}>
+            <Link to={item.route}>{item.caption}</Link>
+          </li>
+        );
+      })}
+    </>
   );
-  items.push(i);
-  return "";
-});
+}
 
-export default items;
+export default MenusItems;

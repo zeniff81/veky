@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import items from "./MenusItems";
-import app from "../../firebase/app";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../auth/Auth";
+import MenusItems from "./MenusItems";
 
 function useOutsideAlerter(ref, action) {
   useEffect(() => {
@@ -27,6 +28,7 @@ function Burger({ theme }) {
   const [activeClass, setActiveClass] = useState("");
   const [color, setColor] = useState("#484848");
   const burgerRef = useRef(null);
+  const { isLogged, logout } = useAuth();
 
   const setActiveToFalse = () => setActive("");
   useOutsideAlerter(burgerRef, setActiveToFalse);
@@ -43,6 +45,11 @@ function Burger({ theme }) {
   const toggleMenu = e => {
     setActive(!active);
     active ? setActiveClass("") : setActiveClass("");
+  };
+
+  const signOut = e => {
+    e.preventDefault();
+    logout();
   };
 
   return (
@@ -68,13 +75,22 @@ function Burger({ theme }) {
 
       {/* menu options */}
       <ul className={`menuoptions ${active ? "menuoptions-visible" : ""}`}>
-        {items.map(el => el)}
+        <MenusItems />
         <hr />
-        <li>
-          <a href='/' onClick={() => app.auth().signOut()}>
-            Salir
-          </a>
-        </li>
+
+        {isLogged && (
+          <li>
+            <a href='/' onClick={signOut}>
+              Salir
+            </a>
+          </li>
+        )}
+
+        {!isLogged && (
+          <li>
+            <Link to='/login'>Iniciar sesión</Link>
+          </li>
+        )}
       </ul>
     </div>
   );

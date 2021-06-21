@@ -1,17 +1,17 @@
-import React from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import Footer from "./components/footer/Footer";
-import MenuMobile from "./components/menu/MenuMobile";
-import About from "./pages/home/About";
-import Contact from "./pages/home/Contact";
-import Home from "./pages/home/Home";
-import Admin from "./pages/admin/Admin";
 import "./sass/main.css";
-import Products from "./pages/Products";
-import { AuthProvider } from "./auth/Auth";
-import PrivateRoute from "./auth/PrivateRoute";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import About from "./pages/home/About";
+import Admin from "./pages/admin/Admin";
+import Contact from "./pages/home/Contact";
+import Footer from "./components/footer/Footer";
+import Home from "./pages/home/Home";
 import Login from "./auth/Login";
+import MenuMobile from "./components/menu/MenuMobile";
+import Products from "./pages/Products";
+import React from "react";
 import SignUp from "./auth/SignUp";
+import { AuthProvider } from "./auth/Auth";
+import AdminProducts from "./pages/admin/AdminProducts";
 
 function App() {
   return (
@@ -21,13 +21,17 @@ function App() {
           <MenuMobile />
           <Switch>
             <Route path='/' exact component={Home} />
-            <PrivateRoute path='/loginpage' exact component={Login} />
-            <Route path='/login' component={Login} />
-            <Route path='/signup' component={SignUp} />
-            <Route path='/contact' component={Contact} />
-            <Route path='/about' component={About} />
-            <Route path='/products' component={Products} />
-            <Route path='/admin' component={Admin} />
+            <Route path='/login' exact component={Login} />
+            <Route path='/signup' exact component={SignUp} />
+            <Route path='/contact' exact component={Contact} />
+            <Route path='/about' exact component={About} />
+            <Route path='/products' exact component={Products} />
+            <Route path='/admin' exact component={Admin} />
+            <Route
+              path='/admin/adminproducts'
+              exact
+              component={AdminProducts}
+            />
           </Switch>
           <Footer />
         </div>

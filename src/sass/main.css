@@ -493,6 +493,12 @@ a {
   margin: 0 1rem;
 }
 
+.menumobile .currentUser {
+  color: #ed2f59;
+  font-style: italic;
+  justify-self: flex-end;
+}
+
 .menumobile .burger {
   justify-self: flex-end;
 }
@@ -793,7 +799,7 @@ a {
 }
 
 .bannercarrouselmobile .logo-container {
-  left: 1remz;
+  left: 2rem;
   position: absolute;
   top: 1rem;
   transition: all 400ms;
@@ -802,11 +808,11 @@ a {
 
 .bannercarrouselmobile .logo-container.hideElements {
   opacity: 0;
-  transform: translate(25px, 3px);
+  transform: translate(100px, 3px);
 }
 
 .bannercarrouselmobile .logo-container .img-logo {
-  animation: animate-logo 6s ease alternate infinite;
+  animation: animate-logo 4s alternate infinite;
   height: 150px;
   width: auto;
 }
@@ -1296,29 +1302,30 @@ a {
   gap: 1rem;
 }
 
-.login {
+.login,
+.signup {
   text-align: center;
 }
 
-.login form {
+.login form,
+.signup form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1rem;
   align-items: center;
+}
+
+.login input,
+.signup input {
   text-align: center;
 }
 
-.login label {
-  display: block;
-  margin: 1rem 0;
+.login input[type="password"],
+.signup input[type="password"] {
+  letter-spacing: 2px;
 }
 
-.login button {
-  display: block;
-  margin-top: 2rem;
-}
-
-.login .registrarse {
-  color: #1080a7;
-  margin: 1rem 0;
+.login input::placeholder,
+.signup input::placeholder {
+  text-align: center;
 }

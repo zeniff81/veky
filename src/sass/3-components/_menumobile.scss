@@ -55,6 +55,12 @@
     }
   }
 
+  .currentUser {
+    color: $color-tertiary;
+    font-style: italic;
+    justify-self: flex-end;
+  }
+
   //burger
   .burger {
     justify-self: flex-end;
