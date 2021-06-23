@@ -446,9 +446,9 @@ a {
   display: flex;
   height: 45px;
   justify-content: space-between;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   z-index: 5;
 }
@@ -469,34 +469,18 @@ a {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  gap: 1rem;
 }
 
 .menumobile .menumobile-icons a {
   color: white;
 }
 
-.menumobile .menumobile-icons .menumobile-icons-item {
-  display: flex;
-  gap: 0.5rem;
-  margin-right: 1rem;
-}
-
-.menumobile .menumobile-icons img {
-  width: 1rem;
-}
-
-.menumobile .icons-center {
-  display: none;
-}
-
-.menumobile .icons-center li {
-  margin: 0 1rem;
-}
-
 .menumobile .currentUser {
-  color: #ed2f59;
+  color: #f697ac;
   font-style: italic;
   justify-self: flex-end;
+  margin-right: 1rem;
 }
 
 .menumobile .burger {
@@ -509,9 +493,16 @@ a {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .menumobile .icons-center {
-    display: flex !important;
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menumobile .icons-right {
+    border: 1px solid green;
+    display: none;
   }
 }
 
@@ -522,7 +513,7 @@ a {
   padding: 0;
   position: absolute;
   right: 0;
-  top: 45px;
+  top: 35px;
   transform: translateX(100%);
   transition: 200ms ease-out;
   width: 180px;
@@ -1271,7 +1262,8 @@ a {
 
 .products > .title {
   color: #1080a7;
-  font-size: 2rem;
+  border: 1px solid #000;
+  font-size: 1.7rem;
   margin: 1rem 0;
   text-align: center;
 }

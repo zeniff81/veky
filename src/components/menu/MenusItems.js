@@ -12,7 +12,7 @@ function MenusItems() {
     setItems([
       { caption: "Inicio", route: "/" },
       { caption: "Productos", route: "/products" },
-      { caption: "Contáctenos", route: "/contact" },
+      { caption: "Contáctenos", route: "/contactus" },
       { caption: "Nosotros", route: "/about" }
     ]);
 

@@ -27,11 +27,11 @@ function MenuMobile() {
           <MenusItems />
         </ul>
         {/* right icons */}
-        <div className='menumobile-icons'>
-          <Link to='/contact' className='contact'>
+        <div className='menumobile-icons icons-right'>
+          <Link to='/contactus' className='contact'>
             <div className='menumobile-icons-item'>
               <div>Contáctenos</div>
-              <img src={agent} alt='logo contactenos' />{" "}
+              <img src={agent} alt='logo contactenos' />
             </div>
           </Link>
           <Link to='/products'>
