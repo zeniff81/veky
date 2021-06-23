@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import CatalogItem from "../components/product/CatalogItem";
 import axios from "axios";
-const dotenv = require("dotenv");
-dotenv.config();
+
+//const PRODUCTS_URL = "http://localhost:8080/products";
+const PRODUCTS_URL = "https://zeniff-express.herokuapp.com/products";
 
 function Products() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://veky-server.herokuapp.com/products")
+      .get(PRODUCTS_URL)
       .then(arrProducts => {
         setProducts(arrProducts.data);
         console.log(arrProducts.data);

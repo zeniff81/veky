@@ -28,7 +28,7 @@ function MenuMobile() {
         </ul>
         {/* right icons */}
         <div className='menumobile-icons'>
-          <Link to='/contact'>
+          <Link to='/contact' className='contact'>
             <div className='menumobile-icons-item'>
               <div>Contáctenos</div>
               <img src={agent} alt='logo contactenos' />{" "}

@@ -503,6 +503,12 @@ a {
   justify-self: flex-end;
 }
 
+@media screen and (max-width: 425px) {
+  .menumobile .contact {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .menumobile .icons-center {
     display: flex !important;
@@ -1079,7 +1085,7 @@ a {
   width: 1.5rem;
 }
 
-.contact {
+.contactus {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;

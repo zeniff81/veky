@@ -24,7 +24,7 @@ function BannerCarrouselMobile() {
   const [hideElements, setHideElements] = useState(false);
 
   useEffect(() => {
-    const intv = 10000;
+    const intv = 7000;
 
     const interval = setInterval(() => {
       setIndex(index => (index === images.length - 1 ? 0 : index + 1));

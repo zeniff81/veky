@@ -24,7 +24,7 @@ function Login() {
         <input
           type='text'
           value={name}
-          onChange={e => setName(e.target.value)}
+          onChange={e => setName(e.target.value.toLowerCase())}
           placeholder='Nombre'
         />
         <input
@@ -34,7 +34,7 @@ function Login() {
           placeholder='Nomdre de usuario'
         />
         <input
-          type='password'
+          type='text'
           value={passwordReg}
           onChange={e => setPasswordReg(e.target.value)}
           placeholder='Contraseña'

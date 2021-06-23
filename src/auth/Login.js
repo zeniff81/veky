@@ -34,11 +34,11 @@ function Login() {
         <input
           type='text'
           value={username}
-          onChange={e => setUsername(e.target.value)}
+          onChange={e => setUsername(e.target.value.toLowerCase())}
           placeholder='Nomdre de usuario'
         />
         <input
-          type='password'
+          type='text'
           value={password}
           onChange={e => setPassword(e.target.value)}
           placeholder='Contraseña'

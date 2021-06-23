@@ -5,6 +5,9 @@ import AdminHeader from "./AdminHeader";
 import AdminProductsItem from "./AdminProductsItem";
 import ProductUploader from "./ProductUploader";
 
+//const PRODUCTS_URL = "http://localhost:8080/products";
+const PRODUCTS_URL = "https://zeniff-express.herokuapp.com/products";
+
 function AdminProducts() {
   const [productUploader, setproductUploader] = useState(false);
   const [products, setProducts] = useState([]);
@@ -14,7 +17,7 @@ function AdminProducts() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const request = await axios.get(process.env.REACT_APP_PRODUCTS_URL);
+      const request = await axios.get(PRODUCTS_URL);
       const data = request.data;
       setProducts(data);
       setFilteredProducts(data);

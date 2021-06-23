@@ -2,7 +2,10 @@ import React, { useState, useRef } from "react";
 import btnAdd from "../../assets/img/btn-add.jpg";
 import firebase from "../../firebase/app";
 import axios from "axios";
-require("dotenv").config();
+
+
+//const PRODUCTS_URL = "http://localhost:8080/products";
+const PRODUCTS_URL = "https://zeniff-express.herokuapp.com/products";
 
 const ProductUploader = props => {
   const { closeMe, broadcastNewproduct } = props;
@@ -42,7 +45,7 @@ const ProductUploader = props => {
   };
   const handleSave = () => {
     axios
-      .post(process.env.REACT_APP_PRODUCTS_URL, product)
+      .post(PRODUCTS_URL, product)
       .then(res => {
         const newProduct = res.data._doc;
         broadcastNewproduct(newProduct);

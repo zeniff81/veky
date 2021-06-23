@@ -3,9 +3,9 @@ import ContactEmail from "./ContactEmail";
 import OtherChannels from "./Channels";
 import OurAgents from "./OurAgents";
 
-function Contact() {
+function ContactUs() {
   return (
-    <div className='contact'>
+    <div className='contactus'>
       <OtherChannels />
       <OurAgents />
       <ContactEmail />
@@ -13,4 +13,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactUs;
