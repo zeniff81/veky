@@ -25,20 +25,26 @@ function BannerCarrouselMobile() {
 
   useEffect(() => {
     const intv = 7000;
+    let timeout1;
+    let timeout2;
 
     const interval = setInterval(() => {
       setIndex(index => (index === images.length - 1 ? 0 : index + 1));
 
-      setTimeout(() => {
+      timeout1 = setTimeout(() => {
         setHideElements(true);
       }, intv - 1000);
 
-      setTimeout(() => {
+      timeout2 = setTimeout(() => {
         setHideElements(false);
       }, intv);
     }, intv);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+    };
   }, [images.length]);
 
   return (

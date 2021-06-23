@@ -2,10 +2,7 @@ import React, { useState, useRef } from "react";
 import btnAdd from "../../assets/img/btn-add.jpg";
 import firebase from "../../firebase/app";
 import axios from "axios";
-
-
-//const PRODUCTS_URL = "http://localhost:8080/products";
-const PRODUCTS_URL = "https://zeniff-express.herokuapp.com/products";
+import { PRODUCTS_URL } from "../../.enviroments";
 
 const ProductUploader = props => {
   const { closeMe, broadcastNewproduct } = props;
