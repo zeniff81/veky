@@ -8,6 +8,10 @@
     align-items: center;
   }
 
+  h1 {
+    margin: 3rem 0;
+  }
+
   input {
     text-align: center;
   }
@@ -18,5 +22,11 @@
 
   input::placeholder {
     text-align: center;
+  }
+
+  .divider {
+    border-bottom: solid 1px #e3e3e3;
+    width: 300px;
+    margin: 3rem 0 0;
   }
 }

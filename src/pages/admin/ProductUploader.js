@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import btnAdd from "../../assets/img/btn-add.jpg";
 import firebase from "../../firebase/app";
 import axios from "axios";
-import { PRODUCTS_URL } from "../../.enviroments";
+import { SERVER_URL } from "../../environments.js";
 
 const ProductUploader = props => {
   const { closeMe, broadcastNewproduct } = props;
@@ -42,7 +42,7 @@ const ProductUploader = props => {
   };
   const handleSave = () => {
     axios
-      .post(PRODUCTS_URL, product)
+      .post(SERVER_URL, product)
       .then(res => {
         const newProduct = res.data._doc;
         broadcastNewproduct(newProduct);

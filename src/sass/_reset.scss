@@ -23,3 +23,15 @@ a {
   text-decoration: none;
   display: block;
 }
+
+// inputs
+input {
+  border: none;
+  border-bottom: 1px solid tint($color-primary, 50%);
+  outline: none;
+  padding: 0.3rem;
+}
+
+input:focus {
+  background: tint($color-primary, 90%);
+}

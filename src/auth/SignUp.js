@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { SERVER_URL } from "../environments.js";
 
-function Login() {
+function SignUp() {
   const [name, setName] = useState("");
   const [usernameReg, setUsernameReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
 
-  const submitLogin = async e => {
+  const submitSignUp = async e => {
     e.preventDefault();
-    const submit = await axios.post("http://localhost:8080/users/signup", {
+    const submit = await axios.post(`${SERVER_URL}users/signup`, {
       name,
       usernameReg,
       passwordReg
@@ -39,10 +41,16 @@ function Login() {
           onChange={e => setPasswordReg(e.target.value)}
           placeholder='Contraseña'
         />
-        <button onClick={submitLogin}>Entrar</button>
+        <button onClick={submitSignUp}>Entrar</button>
+
+        <div className='divider'></div>
+
+        <h3>
+          ¿Ya tienes cuenta? <Link to='login'>Iniciar sesión</Link>
+        </h3>
       </form>
     </div>
   );
 }
 
-export default Login;
+export default SignUp;

@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useAuth } from "./Auth";
+import { SERVER_URL } from "../environments.js";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
   const { setCurrentName, setCurrentUsername, setCurrentRole } = useAuth();
+  const usernameRef = useRef();
+
+  useEffect(() => {
+    usernameRef.current.focus();
+  }, [usernameRef]);
 
   const submitLogin = async e => {
     e.preventDefault();
-    const response = await axios.post("http://localhost:8080/users/login", {
+    const response = await axios.post(`${SERVER_URL}/users/login`, {
       username,
       password
     });
@@ -36,6 +42,7 @@ function Login() {
           value={username}
           onChange={e => setUsername(e.target.value.toLowerCase())}
           placeholder='Nomdre de usuario'
+          ref={usernameRef}
         />
         <input
           type='text'
@@ -44,6 +51,12 @@ function Login() {
           placeholder='Contraseña'
         />
         <button onClick={submitLogin}>Entrar</button>
+
+        <div className='divider'></div>
+
+        <h3>
+          ¿No tiene cuenta? <Link to='signup'>Registrarse</Link>
+        </h3>
       </form>
     </div>
   );

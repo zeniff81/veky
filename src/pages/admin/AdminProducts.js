@@ -4,9 +4,8 @@ import btnAdd from "../../assets/img/btn-add.jpg";
 import AdminHeader from "./AdminHeader";
 import AdminProductsItem from "./AdminProductsItem";
 import ProductUploader from "./ProductUploader";
-
-//const PRODUCTS_URL = "http://localhost:8080/products";
-const PRODUCTS_URL = "https://zeniff-express.herokuapp.com/products";
+import { SERVER_URL } from "../../environments.js";
+import { productsFilter } from "../../components/product/productsFilter";
 
 function AdminProducts() {
   const [productUploader, setproductUploader] = useState(false);
@@ -17,7 +16,7 @@ function AdminProducts() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const request = await axios.get(PRODUCTS_URL);
+      const request = await axios.get(`${SERVER_URL}/products`);
       const data = request.data;
       setProducts(data);
       setFilteredProducts(data);
@@ -41,40 +40,7 @@ function AdminProducts() {
   };
 
   const executeSearch = () => {
-    let list_of_ids = [];
-    let finalList = [];
-
-    // filter per key
-    const title = products.filter(el => {
-      return el.title.toLowerCase().includes(search.toLowerCase());
-    });
-
-    const weight = products.filter(el => {
-      return el.weight.toString().toLowerCase().includes(search.toLowerCase());
-    });
-    const price = products.filter(el => {
-      return el.price.toString().toLowerCase().includes(search.toLowerCase());
-    });
-    const description = products.filter(el => {
-      return el.description.toLowerCase().includes(search.toLowerCase());
-    });
-
-    // eliminate duplicates
-    const trimDuplicates = arr => {
-      arr.forEach(item => {
-        if (!list_of_ids.includes(item._id)) {
-          list_of_ids.push(item._id);
-          finalList.push(item);
-        }
-      });
-    };
-
-    trimDuplicates(title);
-    trimDuplicates(weight);
-    trimDuplicates(price);
-    trimDuplicates(description);
-
-    setFilteredProducts(finalList);
+    productsFilter(products, setFilteredProducts, search);
   };
 
   const searchOnKeyUp = e => {
@@ -83,9 +49,9 @@ function AdminProducts() {
 
   // deleteItem
   const deleteItem = async id => {
-    console.log("HTTP:  ", process.env.REACT_APP_PRODUCTS_URL + `${id}`);
+    console.log("HTTP:  ", process.env.REACT_APP_SERVER_URL + `${id}`);
     axios
-      .delete(process.env.REACT_APP_PRODUCTS_URL + `/${id}`)
+      .delete(process.env.REACT_APP_SERVER_URL + `/${id}`)
       .then(data => {
         const currentItems = products.filter(item => item._id !== id);
         setProducts(currentItems);

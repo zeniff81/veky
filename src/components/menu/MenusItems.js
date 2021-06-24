@@ -4,7 +4,7 @@ import { useAuth } from "../../auth/Auth";
 const { Link } = require("react-router-dom");
 
 function MenusItems() {
-  const { currentRole } = useAuth();
+  const { currentRole, isLogged, logout } = useAuth();
 
   const [items, setItems] = useState([]);
 
@@ -21,6 +21,11 @@ function MenusItems() {
     }
   }, [currentRole]);
 
+  const signOut = e => {
+    e.preventDefault();
+    logout();
+  };
+
   return (
     <>
       {items.map(item => {
@@ -30,6 +35,19 @@ function MenusItems() {
           </li>
         );
       })}
+      {isLogged && (
+        <li>
+          <a href='/' onClick={signOut}>
+            Salir
+          </a>
+        </li>
+      )}
+
+      {!isLogged && (
+        <li>
+          <Link to='/login'>Iniciar sesión</Link>
+        </li>
+      )}
     </>
   );
 }
