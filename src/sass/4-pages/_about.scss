@@ -7,10 +7,10 @@
 
   .titles {
     color: $color-primary;
-    left: 3rem;
-    line-height: 3rem;
     position: absolute;
-    top: 20%;
+    text-align: right;
+    right: 2rem;
+    top: 1rem;
   }
 
   .title1 {
@@ -31,4 +31,16 @@
       margin: 1rem;
     }
   }
+
+  //- - - - - - - - - - - - - - - - tablet 768px - - - - - - - - - - - - - - - - - -
+  @media screen and (min-width: 768px) {
+    .title1 {
+      font-size: 4.5rem;
+    }
+    .title2 {
+      font-size: 5.5rem;
+    }
+  }
+  //- - - - - - - - - - - - - - - - laptop 1024 px - - - - - - - - - - - - - - - - -
+  //- - - - - - - - - - - - - - - - widescreen 1440px  - - - - - - - - - - - - - - -
 }

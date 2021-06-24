@@ -820,10 +820,10 @@
 
 .about .titles {
   color: #1080a7;
-  left: 3rem;
-  line-height: 3rem;
   position: absolute;
-  top: 20%;
+  text-align: right;
+  right: 2rem;
+  top: 1rem;
 }
 
 .about .title1 {
@@ -844,6 +844,15 @@
 .about .content h2,
 .about .content p {
   margin: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .about .title1 {
+    font-size: 4.5rem;
+  }
+  .about .title2 {
+    font-size: 5.5rem;
+  }
 }
 
 .admin .items {
@@ -1156,6 +1165,7 @@
 .homemain .contact-number {
   text-align: center;
   line-height: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .homemain .contact-number img {
