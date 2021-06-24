@@ -452,6 +452,16 @@
   color: white;
 }
 
+.menumobile .menumobile-icons-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menumobile .menumobile-icons-item .logo-contactus {
+  width: 1rem;
+}
+
 .menumobile .currentUser {
   color: #f697ac;
   font-style: italic;
@@ -599,13 +609,13 @@
   align-items: center;
 }
 
-.product .product-description {
+.product .product-title {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
 }
 
-.product .product-description::before {
+.product .product-title::before {
   content: "";
   display: block;
   height: 0;
@@ -1125,7 +1135,7 @@
   z-index: 2;
 }
 
-.homemain .logo2 {
+.homemain .logoTiempo {
   background: #e6e7e8;
   display: flex;
   justify-content: center;
@@ -1134,8 +1144,13 @@
   z-index: 2;
 }
 
-.homemain .logo2 img {
+.homemain .logoTiempo img {
   margin: 2rem 0;
+}
+
+.homemain .homePromoProducts {
+  display: flex;
+  margin: 0 auto;
 }
 
 .homemain .contact-number {
@@ -1308,11 +1323,41 @@
   text-align: center;
 }
 
+.login .errorMessage,
+.signup .errorMessage {
+  color: red;
+  font-style: italic;
+  margin: 3rem 0 0;
+  width: 300px;
+}
+
+.login .animateError,
+.signup .animateError {
+  animation: animateError 600ms ease-in-out;
+}
+
 .login .divider,
 .signup .divider {
   border-bottom: solid 1px #e3e3e3;
   width: 300px;
-  margin: 3rem 0 0;
+}
+
+@keyframes animateError {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 html {

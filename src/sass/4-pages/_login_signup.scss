@@ -24,9 +24,37 @@
     text-align: center;
   }
 
+  .errorMessage {
+    color: red;
+    font-style: italic;
+    margin: 3rem 0 0;
+    width: 300px;
+  }
+
+  .animateError {
+    animation: animateError 600ms ease-in-out;
+  }
+
   .divider {
     border-bottom: solid 1px #e3e3e3;
     width: 300px;
-    margin: 3rem 0 0;
+  }
+
+  @keyframes animateError {
+    0% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1.1);
+    }
+    80% {
+      transform: scale(1);
+    }
+    90% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 }

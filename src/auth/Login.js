@@ -9,6 +9,8 @@ function Login() {
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
   const { setCurrentName, setCurrentUsername, setCurrentRole } = useAuth();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [animateError, setAnimateError] = useState("");
   const usernameRef = useRef();
 
   useEffect(() => {
@@ -22,12 +24,23 @@ function Login() {
       password
     });
 
-    setCurrentName(response.data.data.name);
-    setCurrentUsername(response.data.data.username);
-    setCurrentRole(response.data.data.role);
+    if (response.data.success) {
+      setCurrentName(response.data.data.name);
+      setCurrentUsername(response.data.data.username);
+      setCurrentRole(response.data.data.role);
+      setRedirect(true);
+    }
 
-    // redirect ?
-    if (response.data.response === "LOGIN SUCCESS") setRedirect(true);
+    if (!response.data.sucess) {
+      setErrorMessage(
+        "El usuario o la contraseña está mal. Por favor, revisar y tratar de nuevo."
+      );
+      setAnimateError("animateError");
+
+      setTimeout(() => {
+        setAnimateError("");
+      }, 1000);
+    }
   };
 
   return redirect ? (
@@ -52,6 +65,7 @@ function Login() {
         />
         <button onClick={submitLogin}>Entrar</button>
 
+        <div className={`errorMessage ${animateError}`}>{errorMessage}</div>
         <div className='divider'></div>
 
         <h3>

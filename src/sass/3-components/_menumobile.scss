@@ -40,6 +40,17 @@
     }
   }
 
+  // menumobile-icons-item
+  .menumobile-icons-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .logo-contactus {
+      width: 1rem;
+    }
+  }
+
   .currentUser {
     color: tint($color-tertiary, 50%);
     font-style: italic;

@@ -35,6 +35,9 @@ function MenusItems() {
           </li>
         );
       })}
+
+      <hr />
+
       {isLogged && (
         <li>
           <a href='/' onClick={signOut}>

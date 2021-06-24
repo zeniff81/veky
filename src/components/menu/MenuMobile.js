@@ -30,8 +30,12 @@ function MenuMobile() {
         <div className='menumobile-icons icons-right'>
           <Link to='/contactus' className='contact'>
             <div className='menumobile-icons-item'>
+              <img
+                className='logo-contactus'
+                src={agent}
+                alt='logo contactenos'
+              />
               <div>Contáctenos</div>
-              <img src={agent} alt='logo contactenos' />
             </div>
           </Link>
           <Link to='/products'>
