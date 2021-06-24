@@ -12,6 +12,7 @@ import React from "react";
 import SignUp from "./auth/SignUp";
 import { AuthProvider } from "./auth/Auth";
 import AdminProducts from "./pages/admin/AdminProducts";
+import WhatsappIcon from "./components/socialmedia/WhatsappIcon";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               component={AdminProducts}
             />
           </Switch>
+          <WhatsappIcon />
           <Footer />
         </div>
       </Router>

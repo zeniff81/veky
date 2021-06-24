@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import dummy from "../../assets/img/dummy.png";
+import React from "react";
 
 function Product({ info }) {
   const placeOrder = () => {
@@ -9,7 +8,7 @@ function Product({ info }) {
   };
   return (
     <div className={"product"}>
-      <img className='product-image' src={dummy} alt='product' />
+      <img className='product-image' src={info.image} alt='product' />
       <div className='product-details'>
         <div className='product-title'>{info.title}</div>
         <div className='product-price'>${info.price}</div>

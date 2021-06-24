@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 import { SERVER_URL } from "../environments.js";
 
 function SignUp() {
-  const [name, setName] = useState("");
-  const [usernameReg, setUsernameReg] = useState("");
-  const [passwordReg, setPasswordReg] = useState("");
+  const [name, setName] = useState("bennet");
+  const [usernameReg, setUsernameReg] = useState("bennet09");
+  const [passwordReg, setPasswordReg] = useState("moreno81");
 
   const submitSignUp = async e => {
     e.preventDefault();
-    const submit = await axios.post(`${SERVER_URL}users/signup`, {
+    const submit = await axios.post(`${SERVER_URL}/users/signup`, {
       name,
-      usernameReg,
-      passwordReg
+      username: usernameReg,
+      password: passwordReg
     });
     console.log(submit);
   };
@@ -41,7 +41,7 @@ function SignUp() {
           onChange={e => setPasswordReg(e.target.value)}
           placeholder='Contraseña'
         />
-        <button onClick={submitSignUp}>Entrar</button>
+        <button onClick={submitSignUp}>Registrarse</button>
 
         <div className='divider'></div>
 

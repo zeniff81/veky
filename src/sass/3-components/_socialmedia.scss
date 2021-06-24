@@ -1,15 +1,14 @@
 .social-media {
+  display: flex;
+  gap: 1rem;
+
   img {
-    height: 100%;
-    width: 100%;
+    width: 2rem;
+    height: 2rem;
   }
 
   .sm-img-container {
-    display: inline-block;
     transition: transform 100ms ease-in;
-    margin: 0 0.5rem;
-    height: 1.5rem;
-    width: 1.5rem;
   }
 
   .sm-img-container:hover {

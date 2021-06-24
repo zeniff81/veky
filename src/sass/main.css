@@ -1,3 +1,86 @@
+.adminheader {
+  color: #1080a7;
+}
+
+.adminheader a {
+  color: black;
+}
+
+.adminheader .btn-back-to-admin {
+  position: absolute;
+  top: 0.7rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.adminheader .btn-back-to-admin span {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.adminheader h1 {
+  font-size: 2rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.adminheader h2 {
+  background: #1080a7;
+  color: white;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.bannercarrouselmobile {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.bannercarrouselmobile .img-background {
+  height: auto;
+  position: absolute;
+  transform: translateY(-100px);
+  width: 100%;
+  z-index: -1 !important;
+  transition: all 600ms;
+}
+
+.bannercarrouselmobile .img-background.hideElements {
+  opacity: 0;
+}
+
+.bannercarrouselmobile .logo-container {
+  left: 2rem;
+  position: absolute;
+  top: 1rem;
+  transition: all 400ms;
+  z-index: 1;
+}
+
+.bannercarrouselmobile .logo-container.hideElements {
+  opacity: 0;
+  transform: translate(100px, 3px);
+}
+
+.bannercarrouselmobile .logo-container .img-logo {
+  animation: animate-logo 4s alternate infinite;
+  height: 150px;
+  width: auto;
+}
+
+@keyframes animate-logo {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
 .burger {
   height: 25px;
   width: 35px;
@@ -716,96 +799,54 @@
   left: 1rem;
 }
 
+.social-media {
+  display: flex;
+  gap: 1rem;
+}
+
 .social-media img {
-  height: 100%;
-  width: 100%;
+  width: 2rem;
+  height: 2rem;
 }
 
 .social-media .sm-img-container {
-  display: inline-block;
   transition: transform 100ms ease-in;
-  margin: 0 0.5rem;
-  height: 1.5rem;
-  width: 1.5rem;
 }
 
 .social-media .sm-img-container:hover {
   transform: scale(1.3);
 }
 
-.adminheader {
-  color: #1080a7;
-}
-
-.adminheader .btn-back-to-admin {
-  position: absolute;
-  top: 0;
-  left: 1rem;
-}
-
-.adminheader .btn-back-to-admin span {
-  font-weight: bold;
-  font-size: 1.3rem;
-}
-
-.adminheader h1 {
-  font-size: 2rem;
-  margin: 1rem 0;
+/* for desktop */
+.whatsapp_float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
   text-align: center;
+  font-size: 30px;
+  z-index: 100;
 }
 
-.adminheader h2 {
-  background: #1080a7;
-  color: white;
-  font-size: 1.5rem;
-  margin: 1rem 0;
-  text-align: center;
+.whatsapp-icon {
+  width: 1.3rem;
 }
 
-.bannercarrouselmobile {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.bannercarrouselmobile .img-background {
-  height: auto;
-  position: absolute;
-  transform: translateY(-100px);
-  width: 100%;
-  z-index: -1 !important;
-  transition: all 600ms;
-}
-
-.bannercarrouselmobile .img-background.hideElements {
-  opacity: 0;
-}
-
-.bannercarrouselmobile .logo-container {
-  left: 2rem;
-  position: absolute;
-  top: 1rem;
-  transition: all 400ms;
-  z-index: 1;
-}
-
-.bannercarrouselmobile .logo-container.hideElements {
-  opacity: 0;
-  transform: translate(100px, 3px);
-}
-
-.bannercarrouselmobile .logo-container .img-logo {
-  animation: animate-logo 4s alternate infinite;
-  height: 150px;
-  width: auto;
-}
-
-@keyframes animate-logo {
-  0% {
-    transform: scale(0.9);
+/* for mobile */
+@media screen and (max-width: 767px) {
+  .whatsapp-icon {
+    margin-top: 10px;
   }
-  100% {
-    transform: scale(1.1);
+  .whatsapp_float {
+    width: 40px;
+    height: 40px;
+    bottom: 20px;
+    right: 10px;
+    font-size: 22px;
   }
 }
 

@@ -42,7 +42,7 @@ const ProductUploader = props => {
   };
   const handleSave = () => {
     axios
-      .post(SERVER_URL, product)
+      .post(`${SERVER_URL}/products`, product)
       .then(res => {
         const newProduct = res.data._doc;
         broadcastNewproduct(newProduct);

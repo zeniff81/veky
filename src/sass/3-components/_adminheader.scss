@@ -1,10 +1,17 @@
 .adminheader {
   color: $color-primary;
 
+  a {
+    color: black;
+  }
+
   .btn-back-to-admin {
     position: absolute;
-    top: 0;
+    top: 0.7rem;
     left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 
     span {
       font-weight: bold;

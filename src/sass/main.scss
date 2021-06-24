@@ -1,6 +1,8 @@
 @import "./1-abstracts/variables";
 @import "./1-abstracts/mixins";
 
+@import "./3-components/adminheader";
+@import "./3-components/bannercarrouselmobile";
 @import "./3-components/burger";
 @import "./3-components/button";
 @import "./3-components/carrousel";
@@ -16,8 +18,7 @@
 @import "./3-components/product";
 @import "./3-components/productv2";
 @import "./3-components/socialmedia";
-@import "./3-components/adminheader";
-@import "./3-components/bannercarrouselmobile";
+@import "./3-components/whatsappicon";
 
 @import "./4-pages/about";
 @import "./4-pages/admin";
