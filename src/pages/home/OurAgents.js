@@ -2,24 +2,16 @@ import React from "react";
 
 const dummy = [
   {
-    location: "principal bonao",
-    phone: "829-780-7691"
+    location: "Santo Domingo Este",
+    phone: "809-931-9394"
   },
   {
-    location: "san pedro de macoris",
-    phone: "829-780-1594"
+    location: "Santo Domingo",
+    phone: "829-878-6894"
   },
   {
-    location: "las palmas de herrera",
-    phone: "809-456-7448"
-  },
-  {
-    location: "santo domingo este",
-    phone: "829-780-4681"
-  },
-  {
-    location: "principal bonao",
-    phone: "809-780-3333"
+    location: "Santo Domingo",
+    phone: "809-802-5648"
   }
 ];
 
@@ -31,7 +23,7 @@ function OurAgents() {
         <div className='title2'>representantes</div>
       </div>
       <div className='content'>
-        {dummy.map((el) => (
+        {dummy.map(el => (
           <Agent key={el.phone} location={el.location} phone={el.phone} />
         ))}
       </div>

@@ -13,16 +13,16 @@ function About() {
       <div className='content'>
         <h2>VEKY SRL</h2>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos
-          obcaecati ea cupiditate nisi harum beatae laborum veniam, fugiat
-          suscipit aliquid ipsam nostrum non voluptatibus doloribus? Quos,
-          corporis fugit. Eveniet, architecto.
+          Creamos <i>productos naturales</i>, hechos con amor y entrega para
+          darte bienestar capilar, con la promesa de restaurar tu cabello y
+          brindar la naturalidad, brillo, suavidad, nutrición y sobre todo la{" "}
+          <b>reestructuración</b> que tu pelo necesita, manteniendo y aumentando
+          los resultados en el tiempo.
         </p>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos
-          obcaecati ea cupiditate nisi harum beatae laborum veniam, fugiat
-          suscipit aliquid ipsam nostrum non voluptatibus doloribus? Quos,
-          corporis fugit. Eveniet, architecto.
+          <i>
+            <b>!ES TIEMPO DE UN CABELLO HERMOSO!</b>
+          </i>
         </p>
       </div>
     </div>

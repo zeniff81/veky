@@ -1,5 +1,5 @@
 {
-  "name": "veky",
+  "name": "vekyrd",
   "version": "0.1.0",
   "private": true,
   "license": "",
@@ -16,6 +16,7 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "reactjs-popup": "^2.0.4",
     "uuid": "^3.4.0",
     "web-vitals": "^1.0.1"
   },

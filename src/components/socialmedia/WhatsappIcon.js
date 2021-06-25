@@ -7,7 +7,7 @@ function WhatsappIcon() {
       {/* WhatsApp icon */}
       <a
         href='https://wa.me/8098025648'
-        class='whatsapp_float'
+        className='whatsapp_float'
         target='_blank'
         rel='noopener noreferrer'
       >

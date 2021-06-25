@@ -17,3 +17,12 @@ export function useMediaQuery(query) {
 
   return matches;
 }
+
+/* usage
+import { useMediaQuery } from "../../utilities/useMediaQuery";
+
+let pageWidth768 = useMediaQuery("(min-width: 768px)");
+
+{pageWidth768 && <Logo2 />}
+
+*/
