@@ -276,8 +276,9 @@
   justify-content: space-between;
   margin: 1rem;
   position: relative;
+  cursor: pointer;
   transition: border 200ms, transform 200ms ease-in-out;
-  width: 300px;
+  width: 320px;
 }
 
 .catalogitem:hover {
@@ -323,6 +324,8 @@
   flex-direction: column;
   justify-content: space-between;
   height: 110px;
+  margin-right: 12px;
+  margin-top: 12px;
 }
 
 .catalogitem .details .info > .info-title {
@@ -344,6 +347,7 @@
   height: 50px;
   line-height: 0.8rem;
   overflow: hidden;
+  color: gray;
 }
 
 .catalogitem .details .info > .info-description::first-letter {
@@ -354,6 +358,7 @@
   font-weight: bold;
   font-size: 1.3rem;
   color: #888;
+  margin-right: 12px;
 }
 
 .catalogitem .details > .btn-add-cart {

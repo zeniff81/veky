@@ -5,8 +5,9 @@
   justify-content: space-between;
   margin: 1rem;
   position: relative;
+  cursor: pointer;
   transition: border 200ms, transform 200ms ease-in-out;
-  width: 300px;
+  width: 320px;
 
   &:hover {
     transform: scale(1.06);
@@ -51,6 +52,8 @@
       flex-direction: column;
       justify-content: space-between;
       height: 110px;
+      margin-right: 12px;
+      margin-top: 12px;
 
       > .info-title {
         text-transform: uppercase;
@@ -72,6 +75,7 @@
         height: 50px;
         line-height: 0.8rem;
         overflow: hidden;
+        color: gray;
 
         &::first-letter {
           text-transform: capitalize;
@@ -83,6 +87,7 @@
       font-weight: bold;
       font-size: 1.3rem;
       color: #888;
+      margin-right: 12px;
     }
 
     > .btn-add-cart {
