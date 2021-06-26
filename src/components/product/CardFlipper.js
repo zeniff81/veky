@@ -12,25 +12,25 @@ const CardFlipper = props => {
 
   return (
     <div className={`cardflipper`}>
-      <img src={flipIcon} alt='' onClick={flip} className='flipper' />
-
       <div className={`card-container ${flipped ? "flipped" : ""}`}>
         <div className='card'>
-          <figure className='back'>{<CatalogItemBack {...props} />}</figure>
+          {/* back */}
+          <figure className='back' onClick={flip}>
+            {
+              <CatalogItemBack
+                className={`${flipped ? "back-visible" : ""}`}
+                {...props}
+              />
+            }
+          </figure>
+
+          {/* front */}
           <figure className={`front ${flipped ? "hidden" : ""}`}>
+            <img src={flipIcon} alt='' onClick={flip} className='flipper' />
             {<CatalogItem {...props} />}
           </figure>
         </div>
       </div>
-    </div>
-  );
-};
-
-const DummyCard = ({ text }) => {
-  return (
-    <div className='dummybackcard'>
-      <h1>Dummy card</h1>
-      <p>{text}</p>
     </div>
   );
 };

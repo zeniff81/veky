@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import CatalogItem from "../components/product/CatalogItem";
 import axios from "axios";
 import { SERVER_URL } from "../environments.js";
 import { productsFilter } from "../components/product/productsFilter";

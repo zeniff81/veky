@@ -4,4 +4,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+
+  h1 {
+    color: $color-primary;
+    width: 100%;
+    text-align: center;
+  }
 }

@@ -4,7 +4,7 @@ import CatalogItem from "../../components/product/CatalogItem";
 import CatalogItemBack from "../../components/product/CatalogItemBack";
 
 function Test() {
-  const [productInfo, setProductInfo] = useState({
+  const [productInfo] = useState({
     title: "Product title",
     _id: "06556616646",
     weight: 12,

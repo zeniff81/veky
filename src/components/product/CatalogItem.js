@@ -1,8 +1,6 @@
 import React from "react";
 import icon from "../../assets/img/cart-white.svg";
 
-import ItemWithFlip from "./CardFlipper";
-
 function CatalogItem({ productInfo }) {
   const placeOrder = () => {
     alert(

@@ -4,6 +4,8 @@
   @extend .flex-center-all;
   position: relative;
   margin: 1rem;
+  cursor: pointer;
+  overflow: hidden;
 
   .flipper {
     position: absolute;
@@ -36,6 +38,7 @@
 
   .hidden {
     opacity: 0;
+    pointer-events: none;
   }
 
   .card figure {

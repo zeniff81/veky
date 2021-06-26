@@ -33,11 +33,17 @@
   padding: 1.4rem;
   text-align: center;
 
-  a {
+  .btn-send {
     color: white;
-    text-decoration: none;
     background-color: $color-primary;
     padding: 0.3rem 2rem;
     border-radius: 0.4rem;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .btn-send-active {
+    opacity: 1;
+    pointer-events: all;
   }
 }
