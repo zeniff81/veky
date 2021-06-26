@@ -1,1 +1,5 @@
-/* No CSS */
+.flex-center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

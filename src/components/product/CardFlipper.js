@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import flipIcon from "../../assets/img/flip.svg";
+import CatalogItem from "./CatalogItem";
+import CatalogItemBack from "./CatalogItemBack";
 
-const CardFlipper = ({ Front, Back, ...props }) => {
-  const [flipped, setFlipped] = useState(true);
+const CardFlipper = props => {
+  const [flipped, setFlipped] = useState(false);
 
   const flip = () => {
     setFlipped(!flipped);
@@ -12,18 +14,11 @@ const CardFlipper = ({ Front, Back, ...props }) => {
     <div className={`cardflipper`}>
       <img src={flipIcon} alt='' onClick={flip} className='flipper' />
 
-      <div className={`card-container ${flipped && "flipped"}`}>
+      <div className={`card-container ${flipped ? "flipped" : ""}`}>
         <div className='card'>
-          <figure className='back'>
-            <h1>PRICE: $300</h1>
-            <button>Buy me</button>
-          </figure>
-          <figure className='front'>
-            <h1>PRO TIER</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
-              rem!
-            </p>
+          <figure className='back'>{<CatalogItemBack {...props} />}</figure>
+          <figure className={`front ${flipped ? "hidden" : ""}`}>
+            {<CatalogItem {...props} />}
           </figure>
         </div>
       </div>

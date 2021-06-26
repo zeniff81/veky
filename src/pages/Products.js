@@ -3,6 +3,7 @@ import CatalogItem from "../components/product/CatalogItem";
 import axios from "axios";
 import { SERVER_URL } from "../environments.js";
 import { productsFilter } from "../components/product/productsFilter";
+import CardFlipper from "../components/product/CardFlipper";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -58,7 +59,7 @@ function Products() {
       {/* catalog */}
       <div className='catalog'>
         {filteredProducts.map(el => (
-          <CatalogItem key={el._id} productInfo={el} />
+          <CardFlipper key={el._id} productInfo={el} />
         ))}
       </div>
     </div>

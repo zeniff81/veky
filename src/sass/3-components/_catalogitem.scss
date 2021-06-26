@@ -3,7 +3,6 @@
   background: tint(gray, 95%);
   display: flex;
   justify-content: space-between;
-  margin: 1rem;
   position: relative;
   cursor: pointer;
   transition: transform 50ms ease-in-out;
@@ -95,5 +94,34 @@
       justify-self: flex-end;
       align-self: flex-end;
     }
+  }
+}
+
+.catalogitemback {
+  background: #e3e3e3;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+
+  .caption {
+    font-style: italic;
+    color: #888;
+    margin: 0.8rem;
+    margin-left: 3rem;
+    align-self: flex-start;
+  }
+
+  h3 {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    margin: 0 1rem;
   }
 }

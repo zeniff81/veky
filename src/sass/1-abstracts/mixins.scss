@@ -15,3 +15,9 @@
 @function darken($color, $percentage) {
   @return mix(black, $color, $percentage);
 }
+
+.flex-center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
