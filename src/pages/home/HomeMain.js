@@ -8,6 +8,7 @@ import { useMediaQuery } from "../../utilities/useMediaQuery";
 import axios from "axios";
 import { SERVER_URL } from "../../environments.js";
 import CatalogItem from "../../components/product/CatalogItem";
+import CardFlipper from "../../components/product/CardFlipper";
 
 function Home() {
   let pageWidth768 = useMediaQuery("(min-width: 768px)");
@@ -55,9 +56,16 @@ const GenerateProducts = () => {
 
   return (
     <div className='homePromoProducts'>
-      {arrayProducts.map(el => (
-        <CatalogItem productInfo={el} />
-      ))}
+      {arrayProducts.map(
+        el => (
+          <CardFlipper
+            Front={CatalogItem}
+            Back={CatalogItem}
+            productInfo={el}
+          />
+        )
+        //<CatalogItem productInfo={el} />
+      )}
     </div>
   );
 };

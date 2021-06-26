@@ -13,6 +13,7 @@ import SignUp from "./auth/SignUp";
 import { AuthProvider } from "./auth/Auth";
 import AdminProducts from "./pages/admin/AdminProducts";
 import WhatsappIcon from "./components/socialmedia/WhatsappIcon";
+import Test from "./pages/test/Test";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path='/about' exact component={About} />
             <Route path='/products' exact component={Products} />
             <Route path='/admin' exact component={Admin} />
+            <Route path='/test' exact component={Test} />
             <Route
               path='/admin/adminproducts'
               exact

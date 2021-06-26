@@ -1,0 +1,52 @@
+.cardflipper {
+  height: 400px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+
+  .flipper {
+    position: absolute;
+    z-index: 100;
+  }
+
+  .card-container {
+    width: 200px;
+    height: 300px;
+  }
+
+  .card {
+    width: 100%;
+    height: 100%;
+    transition: transform 400ms ease;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flipped .card {
+    transform: rotateY(180deg);
+  }
+
+  .flipped.front {
+    opacity: 0;
+  }
+
+  .card figure {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+  .card .front {
+    background: lightblue;
+    transition: opacity 100ms 100ms;
+  }
+  .card .back {
+    background: yellow;
+    transform: rotateY(180deg);
+    height: 80%;
+  }
+}

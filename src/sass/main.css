@@ -277,12 +277,12 @@
   margin: 1rem;
   position: relative;
   cursor: pointer;
-  transition: border 200ms, transform 200ms ease-in-out;
+  transition: transform 50ms ease-in-out;
   width: 320px;
 }
 
 .catalogitem:hover {
-  transform: scale(1.06);
+  transform: scale(1.01);
 }
 
 .catalogitem .image {
@@ -362,6 +362,8 @@
 }
 
 .catalogitem .details > .btn-add-cart {
+  display: flex;
+  gap: 0.2rem;
   justify-self: flex-end;
   align-self: flex-end;
 }
@@ -852,6 +854,60 @@
 .whatsappicon .whatsapp-icon {
   width: 20px;
   height: 20px;
+}
+
+.cardflipper {
+  height: 400px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid blue;
+}
+
+.cardflipper .flipper {
+  position: absolute;
+  z-index: 100;
+}
+
+.cardflipper .card-container {
+  width: 200px;
+  height: 300px;
+}
+
+.cardflipper .card {
+  width: 100%;
+  height: 100%;
+  transition: transform 400ms ease;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardflipper .flipped .card {
+  transform: rotateY(180deg);
+}
+
+.cardflipper .flipped .front {
+  opacity: 0;
+}
+
+.cardflipper .card figure {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.cardflipper .card .front {
+  background: lightblue;
+  transition: opacity 100ms 100ms;
+}
+
+.cardflipper .card .back {
+  background: yellow;
+  transform: rotateY(180deg);
+  height: 80%;
 }
 
 .about {
