@@ -981,6 +981,7 @@
   height: 100vh;
   width: 100vw;
   transition: 400ms;
+  z-index: 100;
 }
 
 .modal {
@@ -1001,7 +1002,7 @@
 .modal .modal-container .header {
   background: white;
   border-radius: 50%;
-  border: 6px solid lightskyblue;
+  border: 6px solid rgba(134, 202, 245, 0.6);
   color: red;
   font-size: 2rem;
   font-weight: bold;

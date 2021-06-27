@@ -7,10 +7,10 @@ function ContactEmail() {
   const [enableSendButton, setEnableSendButton] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [emailData, setEmailData] = useState({
-    name: "moreno",
-    phone: "8098098098",
-    email: "moreno@gmail.com",
-    message: "Gracias por sus servicios"
+    name: "",
+    phone: "",
+    email: "",
+    message: ""
   });
 
   useEffect(() => {
