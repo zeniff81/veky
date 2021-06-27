@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { SERVER_URL } from "../../environments";
+import Modal from "../../components/Modal";
 
 function ContactEmail() {
   const [enableSendButton, setEnableSendButton] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [emailData, setEmailData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    message: ""
+    name: "moreno",
+    phone: "8098098098",
+    email: "moreno@gmail.com",
+    message: "Gracias por sus servicios"
   });
 
   useEffect(() => {
     setEnableSendButton(
-      (emailData.name != "") &
-        (emailData.phone != "") &
-        (emailData.email != "") &
-        (emailData.message != "")
+      (emailData.name !== "") &
+        (emailData.phone !== "") &
+        (emailData.email !== "") &
+        (emailData.message !== "")
     );
 
     console.log(emailData);
@@ -26,9 +28,13 @@ function ContactEmail() {
     e.preventDefault();
     axios
       .post(`${SERVER_URL}/users/emailReceived`, { emailData })
-      .then(response => console.log(response))
+      .then(response => {
+        console.log(response);
+        setModalIsOpen(true);
+      })
       .catch(err => console.log(err));
   };
+
   const nameChanged = e => {
     setEmailData({ ...emailData, name: e.target.value });
   };
@@ -51,14 +57,14 @@ function ContactEmail() {
           name='name'
           placeholder='nombre'
           onChange={nameChanged}
-          value={emailData.nombre}
+          value={emailData.name}
         />
         <input
           type='text'
           name='phone'
           placeholder='teléfono'
           onChange={phoneChanged}
-          value={emailData.teléfono}
+          value={emailData.phone}
         />
         <input
           type='text'
@@ -87,6 +93,15 @@ function ContactEmail() {
           </button>
         </div>
       </form>
+
+      {/* thank you for your message */}
+      <Modal
+        title='¡Excelente!'
+        isOpen={modalIsOpen}
+        setIsOpen={setModalIsOpen}
+      >
+        Hemos recibido su mensaje. Le contestaremos a la mayor brevedad posible.
+      </Modal>
     </div>
   );
 }

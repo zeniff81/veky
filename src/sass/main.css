@@ -1,4 +1,4 @@
-.flex-center-all, .cardflipper, .cardflipper .card, .cardflipper .card .front {
+.flex-center-all, .cardflipper, .cardflipper .card, .cardflipper .card .front, .modal .modal-container, .modal .modal-container .header, .modal .modal-container .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -973,6 +973,109 @@
   transform: rotateY(180deg);
 }
 
+.modal-overlay {
+  background: rgba(134, 202, 245, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  transition: 400ms;
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal .modal-container {
+  box-shadow: 1px 1px 5px gray;
+  background: white;
+  min-height: 250px;
+  width: 300px;
+  flex-direction: column;
+}
+
+.modal .modal-container .header {
+  background: white;
+  border-radius: 50%;
+  border: 6px solid lightskyblue;
+  color: red;
+  font-size: 2rem;
+  font-weight: bold;
+  height: 20px;
+  line-height: 2rem;
+  padding: 1.5rem;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  align-self: center;
+  transform: translate(0, -50%);
+  width: 20px;
+}
+
+.modal .modal-container .title {
+  color: red;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal .modal-container .message {
+  text-align: center;
+  color: gray;
+}
+
+.modal .modal-container .buttons {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: red;
+}
+
+.modal .modal-container .btn-close {
+  border: none;
+  background: red;
+  color: white;
+  padding: 0.7rem;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+}
+
+.modal .modal-container .btn-close:hover {
+  background: #e60000;
+}
+
+.modal.hidden {
+  animation: hideModal 400ms ease-in-out;
+}
+
+@keyframes hideModal {
+  25% {
+    top: 51%;
+    opacity: 1;
+  }
+  40% {
+    top: 50%;
+    opacity: 1;
+  }
+  60% {
+    top: 48%;
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    top: 50%;
+    opacity: 0;
+  }
+}
+
 .about {
   position: relative;
   margin-bottom: 2rem;
@@ -1551,6 +1654,15 @@
   100% {
     transform: scale(1);
   }
+}
+
+.test {
+  background: darkkhaki;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  height: 500px;
+  width: 500px;
 }
 
 html {
