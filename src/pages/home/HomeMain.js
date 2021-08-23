@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import logoTiempo1 from "../../assets/img/tiempo1.svg";
-import logoTiempo2 from "../../assets/img/tiempo2.svg";
-import BannerCarrouselMobile from "./BannerCarrousel/BannerCarrouselMobile";
-import whatsappIcon from "../../assets/img/whatsapp.svg";
-import phoneIcon from "../../assets/img/phone.svg";
+import { SERVER_URL } from "../../environments.js";
 import { useMediaQuery } from "../../utilities/useMediaQuery";
 import axios from "axios";
-import { SERVER_URL } from "../../environments.js";
-import CatalogItem from "../../components/product/CatalogItem";
+import BannerCarrouselMobile from "./BannerCarrousel/BannerCarrouselMobile";
 import CardFlipper from "../../components/product/CardFlipper";
+import CatalogItem from "../../components/product/CatalogItem";
+import logoTiempo1 from "../../assets/img/tiempo1.svg";
+import logoTiempo2 from "../../assets/img/tiempo2.svg";
+import phoneIcon from "../../assets/img/phone.svg";
+import React, { useEffect, useState } from "react";
+import whatsappIcon from "../../assets/img/whatsapp.svg";
 
 function Home() {
   let pageWidth768 = useMediaQuery("(min-width: 768px)");
@@ -48,7 +48,6 @@ const GenerateProducts = () => {
         `${SERVER_URL}/products/homepromoproducts`
       );
       setArrayProducts(results.data.arrProducts);
-      console.log(results.data.arrProducts);
     }
 
     fetchPromoProducts();
@@ -59,6 +58,7 @@ const GenerateProducts = () => {
       {arrayProducts.map(
         el => (
           <CardFlipper
+            key={el._id}
             Front={CatalogItem}
             Back={CatalogItem}
             productInfo={el}

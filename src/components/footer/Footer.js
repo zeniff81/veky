@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import SocialMedia from "../socialmedia/SocialMedia";
 import MenusItems from "../menu/MenusItems";
+import Modal from "../Modal";
 
 function Footer() {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <div className='footer'>
       <div className='stripe'></div>
@@ -27,6 +29,19 @@ function Footer() {
         <div className='site-map'>Mapa del sitio</div>
         <div className='carreer'>Gana dinero con Veky</div>
       </div>
+
+      {/* modals */}
+      {openModal && (
+        <Modal title='Ya casi...' isOpen={openModal} setIsOpen={setOpenModal}>
+          <h3>¡Síiiii, podrás ganar dinero con Veky! </h3>
+          <p>
+            Pronto te dejaremos saber cómo.{" "}
+            <b>
+              <i style={{ color: "green" }}>!Atentos!</i>
+            </b>
+          </p>
+        </Modal>
+      )}
     </div>
   );
 }

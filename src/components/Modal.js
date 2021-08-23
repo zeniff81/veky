@@ -1,33 +1,33 @@
 import React, { useState } from "react";
 import reactDom from "react-dom";
+import { useSpring, animated, config } from "react-spring";
+import tick from "../assets/img/tick.svg";
 
 function Modal({ children, title, isOpen, setIsOpen }) {
-  const [hidden, setHidden] = useState("");
+  const [show, setShow] = useState(true);
+
+  const props = useSpring({
+    from: { opacity: 0, transform: "translate(-50%, -5%)" },
+    to: { opacity: 1, transform: "translate(-50%, -50%)" },
+    reverse: !show,
+    config: config.wobbly
+  });
 
   const close = () => {
-    setHidden("hidden");
+    setShow(false);
 
     setTimeout(() => {
-      setHidden("");
-      setIsOpen(null);
-    }, 400);
+      setIsOpen(false);
+      setShow(true);
+    }, 300);
   };
 
-  if (!isOpen) return null;
-
   return reactDom.createPortal(
-    <div
-      className={`modal-overlay`}
-      style={{
-        background: hidden
-          ? "rgba(134, 202, 245, 0)"
-          : "rgba(134, 202, 245, 0.6)"
-      }}
-    >
-      <div className={`modal ${hidden}`}>
+    <div className={`modal-overlay`}>
+      <animated.div style={props} className={`modal`}>
         <div className={`modal-container `}>
           <div className='header'>
-            <div>!</div>
+            <img src={tick} alt='cotejo' />
           </div>
 
           <div className='title'>{title}</div>
@@ -38,7 +38,7 @@ function Modal({ children, title, isOpen, setIsOpen }) {
             </button>
           </div>
         </div>
-      </div>
+      </animated.div>
     </div>,
     document.getElementById("portal")
   );

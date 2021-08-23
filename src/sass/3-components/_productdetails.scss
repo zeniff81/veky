@@ -1,0 +1,89 @@
+.productdetails {
+  text-align: center;
+  gap: 1rem;
+  display: grid;
+  grid-template-areas:
+    "backbutton"
+    "title"
+    "image"
+    "description"
+    "actions";
+  justify-items: center;
+  max-width: 1024px;
+  margin: 4rem auto 2rem;
+  position: relative;
+
+  .title {
+    font-size: 1.3rem;
+    grid-area: title;
+  }
+
+  .image-container {
+    position: relative;
+    max-width: 300px;
+    grid-area: image;
+
+    > img {
+      height: 100%;
+      width: 100%;
+    }
+
+    .index {
+      background: #444444;
+      color: white;
+      font-size: 0.8rem;
+      left: 0;
+      padding: 0.2rem;
+      text-align: center;
+      text-transform: uppercase;
+      position: absolute;
+      top: 0;
+      width: 60px;
+    }
+  }
+
+  .description-large {
+    color: hsl(50, 0, 30);
+    text-align: justify;
+    margin: 0 2rem;
+    grid-area: description;
+  }
+
+  .price {
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: 0rem;
+    right: 0rem;
+    background: #444444;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 15px 0 0 0;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 0.5rem;
+    grid-area: actions;
+  }
+
+  .btn-back {
+    grid-area: backbutton;
+
+    margin-bottom: 1rem;
+  }
+}
+
+//- - - - - - - - - - - - - - - - tablet 768px - - - - - - - - - - - - - - - - - -
+@media screen and (min-width: 768px) {
+  .productdetails {
+    //grid-template-columns: 1fr minmax(1fr, 700px);
+    grid-template-areas:
+      "backbutton backbutton"
+      "image      title"
+      "image      description"
+      "image      actions";
+    gap: 0 2rem;
+  }
+}

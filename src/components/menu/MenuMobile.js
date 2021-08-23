@@ -4,15 +4,16 @@ import { Link } from "react-router-dom";
 import Burger from "./Burger";
 import agent from "../../assets/img/agent.svg";
 import MenusItems from "./MenusItems";
-import { useAuth } from "../../auth/Auth";
+import CartWidget from "../CartWidget/CartWidget";
+import { connect } from "react-redux";
 
-function MenuMobile() {
-  const { currentName, currentRole } = useAuth();
+function MenuMobile({ user }) {
   const [showAdminItems, setShowAdminItems] = useState(false);
 
   useEffect(() => {
-    setShowAdminItems(currentRole.includes("admin"));
-  }, [currentRole]);
+    const isAdmin = user.roles.includes("admin");
+    setShowAdminItems(isAdmin);
+  }, [user.roles]);
 
   return (
     <div>
@@ -44,11 +45,12 @@ function MenuMobile() {
             </div>
           </Link>
         </div>
+        <CartWidget />
         <Link to='#' className='currentUser'>
           <div className='menumobile-icons-item'>
             <div>
-              [ {currentName}
-              {showAdminItems ? " (admin)" : null} ]
+              {user.username}
+              {showAdminItems ? " (admin)" : null}
             </div>
           </div>
         </Link>
@@ -59,4 +61,10 @@ function MenuMobile() {
   );
 }
 
-export default MenuMobile;
+const mapStateToProps = state => {
+  return {
+    user: state.userReducer
+  };
+};
+
+export default connect(mapStateToProps, null)(MenuMobile);

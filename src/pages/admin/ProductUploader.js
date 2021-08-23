@@ -32,7 +32,6 @@ const ProductUploader = props => {
     await fileRef.put(file);
     const imageUrl = await fileRef.getDownloadURL();
     setProduct({ ...product, image: imageUrl });
-    console.log(imageUrl);
   };
   const formSubmit = e => {
     e.preventDefault();

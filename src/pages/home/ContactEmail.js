@@ -5,7 +5,7 @@ import Modal from "../../components/Modal";
 
 function ContactEmail() {
   const [enableSendButton, setEnableSendButton] = useState(false);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const [emailData, setEmailData] = useState({
     name: "",
     phone: "",
@@ -20,8 +20,6 @@ function ContactEmail() {
         (emailData.email !== "") &
         (emailData.message !== "")
     );
-
-    console.log(emailData);
   }, [emailData]);
 
   const send = e => {
@@ -29,8 +27,7 @@ function ContactEmail() {
     axios
       .post(`${SERVER_URL}/users/emailReceived`, { emailData })
       .then(response => {
-        console.log(response);
-        setModalIsOpen(true);
+        setOpenModal(true);
       })
       .catch(err => console.log(err));
   };
@@ -95,13 +92,12 @@ function ContactEmail() {
       </form>
 
       {/* thank you for your message */}
-      <Modal
-        title='¡Excelente!'
-        isOpen={modalIsOpen}
-        setIsOpen={setModalIsOpen}
-      >
-        Hemos recibido su mensaje. Le contestaremos a la mayor brevedad posible.
-      </Modal>
+      {openModal && (
+        <Modal title='¡Excelente!' isOpen={openModal} setIsOpen={setOpenModal}>
+          Hemos recibido su mensaje. Le contestaremos a la mayor brevedad
+          posible.
+        </Modal>
+      )}
     </div>
   );
 }

@@ -1,46 +1,71 @@
 import "./sass/main.css";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { initAxiosInterceptors } from "./auth/initAxiosInterceptors";
 import About from "./pages/home/About";
 import Admin from "./pages/admin/Admin";
+import AdminProducts from "./pages/admin/AdminProducts";
+import Cart from "./pages/Cart/Cart";
 import ContactUs from "./pages/home/ContactUs";
 import Footer from "./components/footer/Footer";
+import ForgotPasswordScreen from "./pages/auth/ForgotPasswordScreen";
 import Home from "./pages/home/Home";
-import Login from "./auth/Login";
+import LoginScreen from "./pages/auth/LoginScreen";
 import MenuMobile from "./components/menu/MenuMobile";
+import OrderConfirmation from "./pages/Cart/OrderConfirmation";
+import Orders from "./pages/admin/Orders";
+import OrderSubmitted from "./pages/Cart/OrderSubmitted";
+import ProductDetails from "./components/product/ProductDetails";
 import Products from "./pages/Products";
 import React from "react";
-import SignUp from "./auth/SignUp";
-import { AuthProvider } from "./auth/Auth";
-import AdminProducts from "./pages/admin/AdminProducts";
+import ReduxStartup from "./components/ReduxStartup/ReduxStartup";
+import RegisterScreen from "./pages/auth/RegisterScreen";
+import ResetPasswordScreen from "./pages/auth/ResetPasswordScreen";
+import Test from "./test/Test";
 import WhatsappIcon from "./components/socialmedia/WhatsappIcon";
-import Test from "./pages/test/Test";
 
-function App() {
+initAxiosInterceptors();
+
+function App({ user, whoAmI }) {
+  console.log("App ------------------");
   return (
-    <AuthProvider>
-      <Router>
-        <div className='app'>
-          <MenuMobile />
-          <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/login' exact component={Login} />
-            <Route path='/signup' exact component={SignUp} />
-            <Route path='/contactus' exact component={ContactUs} />
-            <Route path='/about' exact component={About} />
-            <Route path='/products' exact component={Products} />
-            <Route path='/admin' exact component={Admin} />
-            <Route path='/test' exact component={Test} />
-            <Route
-              path='/admin/adminproducts'
-              exact
-              component={AdminProducts}
-            />
-          </Switch>
-          <WhatsappIcon />
-          <Footer />
-        </div>
-      </Router>
-    </AuthProvider>
+    <Router>
+      <div className='app'>
+        <ReduxStartup />
+        <MenuMobile />
+        <Switch>
+          <Route path='/' exact component={Home} />{" "}
+          <Route path='/contactus' exact component={ContactUs} />{" "}
+          <Route path='/about' exact component={About} />{" "}
+          <Route path='/products' exact component={Products} />{" "}
+          <Route path='/productdetails' exact component={ProductDetails} />{" "}
+          <Route path='/admin' exact component={Admin} />{" "}
+          <Route path='/cart' exact component={Cart} />{" "}
+          <Route
+            path='/orderconfirmation'
+            exact
+            component={OrderConfirmation}
+          />
+          <Route path='/ordersubmitted' exact component={OrderSubmitted} />
+          <Route exact path='/admin/orders' component={Orders} />
+          <Route path='/test' exact component={Test} />
+          <Route path='/admin/adminproducts' exact component={AdminProducts} />
+          <Route exact path='/login' component={LoginScreen} />
+          <Route exact path='/register' component={RegisterScreen} />
+          <Route
+            exact
+            path='/forgotpassword'
+            component={ForgotPasswordScreen}
+          />
+          <Route
+            exact
+            path='/passwordreset/:resetToken'
+            component={ResetPasswordScreen}
+          />
+        </Switch>
+        <WhatsappIcon />
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

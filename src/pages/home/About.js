@@ -5,9 +5,10 @@ function About() {
   return (
     <div className='about'>
       <img src={about} alt='' />
+
       <div className='titles'>
-        <div className='title1'>sobre</div>
-        <div className='title2'>nosotros</div>
+        <div className='title title1'>sobre</div>
+        <div className='title title2'>nosotros</div>
       </div>
 
       <div className='content'>
@@ -19,11 +20,7 @@ function About() {
           <b>reestructuración</b> que tu pelo necesita, manteniendo y aumentando
           los resultados en el tiempo.
         </p>
-        <p>
-          <i>
-            <b>!ES TIEMPO DE UN CABELLO HERMOSO!</b>
-          </i>
-        </p>
+        <p>¡ES TIEMPO DE UN CABELLO HERMOSO!</p>
       </div>
     </div>
   );

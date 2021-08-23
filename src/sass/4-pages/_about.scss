@@ -1,18 +1,28 @@
 .about {
   position: relative;
+  align-items: center;
+  margin: 0 auto;
   margin-bottom: 2rem;
+  display: grid;
+  grid-template-areas:
+    "image"
+    "text";
+  justify-items: center;
 
   img {
-    margin-bottom: 1rem;
+    max-width: 768px;
     width: 100%;
+    grid-area: image;
   }
 
   .titles {
     color: $color-primary;
     position: absolute;
     text-align: right;
-    right: 2rem;
+    right: 50%;
+    transform: translateX(70%);
     top: 1rem;
+    grid-area: image;
   }
 
   .title1 {
@@ -27,6 +37,9 @@
     color: white;
     padding: 0.01rem 0;
     text-align: justify;
+    margin: 0;
+    position: relative;
+    grid-area: text;
 
     h2,
     p {
@@ -34,15 +47,50 @@
     }
   }
 
-  //- - - - - - - - - - - - - - - - tablet 768px - - - - - - - - - - - - - - - - - -
-  @media screen and (min-width: 768px) {
-    .title1 {
-      font-size: 4.5rem;
+  .content::before {
+    content: "";
+    background: -webkit-linear-gradient(left, #8f6b29, #fde08d, #df9f28);
+    height: 10px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+  }
+}
+//- - - - - - - - - - - - - - - - tablet 768px - - - - - - - - - - - - - - - - - -
+//- - - - - - - - - - - - - - - - laptop 1024 px - - - - - - - - - - - - - - - - -
+@media screen and (min-width: 1024px) {
+  .about {
+    grid-template-areas: "image text";
+    grid-template-columns: 40% 60%;
+
+    .titles {
+      grid-area: text;
+      display: flex;
+      transform: translateX(30%) scale(1.2);
     }
-    .title2 {
-      font-size: 5.5rem;
+
+    .content {
+      position: absolute;
+      bottom: 0;
     }
   }
-  //- - - - - - - - - - - - - - - - laptop 1024 px - - - - - - - - - - - - - - - - -
-  //- - - - - - - - - - - - - - - - widescreen 1440px  - - - - - - - - - - - - - - -
 }
+@media screen and (min-width: 1300px) {
+  .about {
+    .titles {
+      margin-top: 70px;
+      transform: translateX(30%) scale(2);
+    }
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .about {
+    .titles {
+      margin-top: 120px;
+      transform: translateX(30%) scale(2.2);
+    }
+  }
+}
+//- - - - - - - - - - - - - - - - widescreen 1440px  - - - - - - - - - - - - - - -

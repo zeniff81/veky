@@ -11,14 +11,12 @@ const CatalogItemBack = ({ productInfo, ...props }) => {
       setTitle(productInfo.secret.title);
       setContent(productInfo.secret.content);
     }
-
-    console.log(productInfo);
   }, [productInfo]);
 
   return (
     <div className={`catalogitemback ${props.className}`}>
       <div className='caption'>secretos</div>
-      <h3>{title}</h3>
+      <h4>{title}</h4>
       <p>{content}</p>
     </div>
   );

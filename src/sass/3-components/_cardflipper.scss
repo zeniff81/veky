@@ -1,58 +1,42 @@
 .cardflipper {
-  height: auto;
-  width: 320px;
-  @extend .flex-center-all;
+  border: 1px solid white;
   position: relative;
-  margin: 1rem;
   cursor: pointer;
+  height: 182px;
+  width: 322px;
   overflow: hidden;
+  transition: box-shadow 100ms;
+  $animationSpeed: 400ms;
+  margin: 1rem;
 
-  .flipper {
-    position: absolute;
-    z-index: 100;
-    bottom: 7px;
-    transform: translateX(9px);
-    transition: transform 100ms ease;
+  &:hover {
+    box-shadow: 4px 4px 4px #e3e3e3;
   }
 
-  .flipper:hover {
-    transform: scale(1.1) rotate(-9deg) translateX(9px);
+  .flipIcon {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translate(-5px, 7px);
+    transition: opacity 400ms;
   }
 
   .card-container {
-    height: 189px;
-    width: 380px;
-  }
-
-  .card {
-    transition: transform 400ms ease;
-    transform-style: preserve-3d;
     @extend .flex-center-all;
     position: relative;
-    height: 100%;
-  }
-
-  .flipped .card {
-    transform: rotateY(180deg);
-  }
-
-  .hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .card figure {
+    transition: transform $animationSpeed;
     height: 100%;
     width: 100%;
-    position: absolute;
-  }
+    transform-style: preserve-3d;
 
-  .card .front {
-    transition: opacity 100ms 100ms;
-    @extend .flex-center-all;
-  }
-  .card .back {
-    height: 100%;
-    transform: rotateY(180deg);
+    .back {
+      transition: opacity $animationSpeed;
+      transform: rotateY(180deg);
+    }
+
+    .front {
+      transition: opacity $animationSpeed;
+      position: absolute;
+    }
   }
 }

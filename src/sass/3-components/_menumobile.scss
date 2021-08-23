@@ -54,13 +54,12 @@
   .currentUser {
     color: tint($color-tertiary, 50%);
     font-style: italic;
-    justify-self: flex-end;
+
     margin-right: 1rem;
   }
 
   //burger
   .burger {
-    justify-self: flex-end;
   }
 
   //- - - - - - - - - - - - - - - - small phone 425px - - - - - - - - - - - - - - - - - -
@@ -71,6 +70,7 @@
   }
   //- - - - - - - - - - - - - - - - tablet 768px - - - - - - - - - - - - - - - - - -
   @media screen and (max-width: 768px) {
+    .currentUser,
     .icons-center {
       display: none;
     }

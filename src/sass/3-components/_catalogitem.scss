@@ -9,16 +9,11 @@
   transition: transform 50ms ease-in-out;
   width: 320px;
 
-  &:hover {
-    transform: scale(1.01);
-  }
-
   .image {
     box-shadow: 1px 1px 5px gray;
     height: 180px;
     position: absolute;
     width: 150px;
-    z-index: 0;
   }
 
   .index {
@@ -40,11 +35,9 @@
     flex-direction: column;
     height: 180px;
     justify-content: space-between;
-    justify-self: flex-end;
     margin-bottom: 0.3rem;
     text-align: right;
     width: 150px;
-    z-index: 1;
 
     .info {
       display: flex;
@@ -75,10 +68,6 @@
         font-size: 0.8rem;
         line-height: 0.8rem;
         overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4; /* number of lines to show */
-        -webkit-box-orient: vertical;
-
         &::first-letter {
           text-transform: capitalize;
         }
@@ -94,9 +83,52 @@
 
     > .btn-add-cart {
       display: flex;
-      gap: 0.2rem;
-      justify-self: flex-end;
+
       align-self: flex-end;
+      position: relative;
+    }
+
+    .tick-icon {
+      transition: all 200ms;
+    }
+
+    .popup {
+      content: "Artículo añadido";
+      background: #444;
+      color: white;
+      position: absolute;
+      right: 0;
+      padding: 2px 7px;
+      opacity: 0;
+      top: 0rem;
+    }
+
+    .showPopup {
+      animation: animatePopup 2.5s ease-in-out;
+    }
+  }
+
+  @keyframes animatePopup {
+    0% {
+      top: 0;
+      opacity: 0;
+    }
+    10% {
+      top: -1.7rem;
+      opacity: 1;
+    }
+
+    13% {
+      top: -1.4rem;
+      opacity: 1;
+    }
+    90% {
+      top: -1.4rem;
+      opacity: 1;
+    }
+    100% {
+      top: 0;
+      opacity: 0;
     }
   }
 }
@@ -106,51 +138,42 @@
   background: #e3e3e3;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 180px;
   justify-content: flex-start;
   text-align: center;
+  padding: 0 1rem;
+  overflow: hidden;
 
   .caption {
     font-style: italic;
-    opacity: 0;
-
     color: #888;
-    transform: translateY(1rem);
-    margin: 0.8rem 0;
+    margin: 0.5rem 0;
+    animation: aniShowCatalogItemBack 2s linear;
   }
 
-  h3 {
-    transform: translateY(1rem);
+  h4 {
+    animation: aniShowCatalogItemBack 2s ease-in;
     padding: 0;
-    opacity: 0;
-
     margin: 0;
     margin-bottom: 0.5rem;
   }
 
   p {
+    animation: aniShowCatalogItemBack 3s ease-in-out;
     font-size: 0.9rem;
-    transform: translateY(1rem);
-    opacity: 0;
-    margin: 0 1rem;
+    opacity: 0.5;
+    margin: 0;
+    margin-bottom: 0.5;
   }
 }
 
-.catalogitemback.back-visible {
-  .caption {
-    opacity: 1;
-    transition: all 1s ease;
-    transform: translateY(0);
+@keyframes aniShowCatalogItemBack {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem);
   }
-  h3 {
+  100% {
     opacity: 1;
-    transition: all 5s ease;
-    transform: translateY(0);
-  }
-  p {
-    opacity: 1;
-    transition: all 3s ease;
-
     transform: translateY(0);
   }
 }

@@ -4,11 +4,14 @@ import btnAdd from "../../assets/img/btn-add.jpg";
 import AdminHeader from "./AdminHeader";
 import AdminProductsItem from "./AdminProductsItem";
 import ProductUploader from "./ProductUploader";
+import ProductEditor from "./ProductEditor";
 import { SERVER_URL } from "../../environments.js";
 import { productsFilter } from "../../components/product/productsFilter";
 
 function AdminProducts() {
   const [productUploader, setproductUploader] = useState(false);
+  const [productEditor, setProductEditor] = useState(false);
+  const [productToEdit, setProductToEdit] = useState(false);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [search, setSearch] = useState("");
@@ -29,8 +32,20 @@ function AdminProducts() {
     setproductUploader(false);
   };
 
+  const closeProductEditor = () => {
+    setProductEditor(false);
+  };
+
+  const updateEditedItem = product => {
+    const index = filteredProducts.findIndex(obj => obj._id === product._id);
+
+    filteredProducts[index] = {
+      ...filteredProducts[index],
+      ...product
+    };
+  };
+
   const broadcastNewproduct = newProduct => {
-    console.log("broadcastNewproduct");
     setProducts([newProduct, ...products]);
     searchButtonRef.current.click();
   };
@@ -51,7 +66,7 @@ function AdminProducts() {
   const deleteItem = async id => {
     console.log("HTTP:  ", process.env.REACT_APP_SERVER_URL + `${id}`);
     axios
-      .delete(process.env.REACT_APP_SERVER_URL + `/${id}`)
+      .delete(`${SERVER_URL}/products/${id}`)
       .then(data => {
         const currentItems = products.filter(item => item._id !== id);
         setProducts(currentItems);
@@ -94,7 +109,13 @@ function AdminProducts() {
       {/* items */}
       <ul className='products'>
         {filteredProducts.map(el => (
-          <AdminProductsItem key={el._id} info={el} deleteMe={deleteItem} />
+          <AdminProductsItem
+            key={el._id}
+            productInfo={el}
+            showEditor={setProductEditor}
+            deleteMe={deleteItem}
+            setProductToEdit={setProductToEdit}
+          />
         ))}
       </ul>
 
@@ -102,6 +123,16 @@ function AdminProducts() {
         <ProductUploader
           closeMe={closeProductUploader}
           broadcastNewproduct={broadcastNewproduct}
+        />
+      )}
+
+      {productEditor && (
+        <ProductEditor
+          closeMe={closeProductEditor}
+          showEditor={setProductEditor}
+          productToEdit={productToEdit}
+          setFilteredProducts={setFilteredProducts}
+          updateEditedItem={updateEditedItem}
         />
       )}
     </div>

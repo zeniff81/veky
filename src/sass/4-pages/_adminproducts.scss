@@ -38,6 +38,7 @@
     .index {
       display: flex;
       align-items: center;
+      text-transform: uppercase;
       width: 45px;
     }
 
@@ -74,7 +75,6 @@
   .productUploader {
     background: white;
     box-shadow: 3px 3px 8px darken($color-primary, 70%);
-    display: display;
     left: 50%;
     position: fixed;
     top: 50%;
