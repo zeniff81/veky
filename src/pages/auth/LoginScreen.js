@@ -6,11 +6,9 @@ import {
   loadScrollPosition,
   saveScrollPosition
 } from "../../utilities/manageScrollPosition";
-import { fetchCart, fetchUser } from "../../redux";
-import { loadUser } from "../../components/ReduxStartup/loadUser";
-import { whoAmI } from "../../redux/user/userActions";
+import { fetchUser } from "../../redux";
 
-function LoginScreen({ fetchUser, whoAmI, fetchCart, history }) {
+function LoginScreen({ user, fetchUser, history }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -22,18 +20,26 @@ function LoginScreen({ fetchUser, whoAmI, fetchCart, history }) {
     };
   }, []);
 
+  useEffect(() => {
+    if (user.error !== null) {
+      setError(user.error);
+    } else {
+      setError("");
+    }
+    console.log(`user.error`, user.error);
+  }, [user.error]);
+
+  useEffect(() => {
+    user.isLogged && history.push("/");
+  }, [user.isLogged, history]);
+
   const login = e => {
     e.preventDefault();
 
-    fetchUser(
-      {
-        email,
-        password
-      },
-      loadUser(whoAmI, fetchCart)
-    );
-
-    history.push("/");
+    fetchUser({
+      email,
+      password
+    });
   };
 
   return (
@@ -79,12 +85,16 @@ function LoginScreen({ fetchUser, whoAmI, fetchCart, history }) {
   );
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
   return {
-    fetchUser: loginInfo => dispatch(fetchUser(loginInfo)),
-    fetchCart: id_to_find => dispatch(fetchCart(id_to_find)),
-    whoAmI: id_to_find => dispatch(whoAmI(id_to_find))
+    user: state.userReducer
   };
 };
 
-export default connect(null, mapDispatchToProps)(LoginScreen);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchUser: loginInfo => dispatch(fetchUser(loginInfo))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);

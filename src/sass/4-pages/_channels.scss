@@ -1,42 +1,21 @@
-.channels {
-  align-items: center;
-  background-color: white;
-  border: 2px solid tint($color-primary, 60%);
-  display: flex;
-  height: 515px;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 320px;
-
-  .title {
-    font-size: 3rem;
-    color: tint($color-primary, 60%);
-    margin: 1rem 0;
-  }
-
-  .items {
-    align-items: flex-start;
-    background-color: tint($color-primary, 70%);
-    color: $color-primary;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin: 1rem;
-    width: calc(100% - 4rem);
-  }
-
-  .channel {
-    align-items: center;
-    display: flex;
-    margin: 1.3rem 0;
-    width: 100%;
-  }
-
-  .channel-img {
-    display: inline-block;
-    height: 100%;
-    margin: 0 1rem;
-    transform: translateY(0.2rem);
-    width: 1.5rem;
-  }
-}
+/**
+ * @license
+ * Copyright 2017 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * SyncEngine is the central controller in the client SDK architecture. It is
+ * the glue code between the EventManager, LocalStore, and RemoteStore. Some of
+ * SyncEngine's responsibilities include:
+ * 1. Coordinating cl

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "../../components/Modal";
+import RandomProducts from "../../components/product/RandomProducts";
 
 function OrderSubmitted() {
   const [openModal, setOpenModal] = useState(true);
   return (
     <div className='ordersubmitted'>
+      <h1>También le podrían interesar.....</h1>
+      <RandomProducts qty={4} />
       <div className='afterOrderSubmitted'>
         <Link to='/products' className='btn btn-more-products'>
           Seguir viendo productos

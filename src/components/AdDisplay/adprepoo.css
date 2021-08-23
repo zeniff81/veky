@@ -1,0 +1,64 @@
+.adprepoo {
+  position: relative;
+  font-family: impact-reg;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+}
+
+.adprepoo .imgprepoo {
+  height: 100%;
+  width: 100%;
+}
+
+.adprepoo .text1 {
+  font-family: impact-reg;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+}
+
+.adprepoo .text1 .brillo {
+  font-size: 10vw;
+}
+
+.adprepoo .text1 .suavidad {
+  font-size: 11vw;
+}
+
+.adprepoo .text1 .salud {
+  font-size: 12vw;
+}
+
+.adprepoo .text2 {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+  font-size: 2rem;
+  font-family: impact-reg;
+  text-align: center;
+}
+
+.adprepoo .text2 .prueba {
+  opacity: 0;
+  color: yellow;
+  font-size: 8vw;
+}
+
+.adprepoo .text2 .prepoo {
+  opacity: 0;
+  font-size: 14vw;
+  color: yellow;
+}
+
+.adprepoo .text2 .logo {
+  bottom: 1rem;
+  right: 1rem;
+  width: 29vw;
+}
+/*# sourceMappingURL=adprepoo.css.map */

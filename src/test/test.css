@@ -5,3 +5,20 @@
   text-align: center;
   padding-bottom: 1rem;
 }
+
+.test button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 20px;
+  margin: 1rem;
+}
+
+.test .bar {
+  border: 2px solid white;
+  margin: 1rem;
+  height: 5rem;
+  width: 5rem;
+}
+/*# sourceMappingURL=test.css.map */

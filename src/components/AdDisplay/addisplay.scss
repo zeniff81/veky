@@ -1,0 +1,16 @@
+$currentWidth: 100vw;
+
+.addisplay {
+	align-items: center;
+	background: #e1e1e1;
+	border: 1px solid red;
+	box-sizing: border-box;
+	display: flex;
+	height: 50vw;
+	justify-content: center;
+	margin-top: 5vh;
+	max-height: 500px;
+	max-width: 1000px;
+	overflow: hidden;
+	width: 100%;
+}

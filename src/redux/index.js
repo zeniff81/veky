@@ -1,11 +1,11 @@
-export { updateProductDetails } from "./productDetails/productDetailsActions";
+export { updateProductDetails } from './productDetails/productDetailsActions';
 
 export {
-  addToCart,
-  removeFromCart,
-  clearCart,
-  updateQty,
-  fetchCart
-} from "./cart/cartActions";
+	addToCart,
+	removeFromCart,
+	clearCart,
+	updateQty,
+	fetchCart,
+} from './cart/cartActions';
 
-export { fetchUser, logoutUser } from "./user/userActions";
+export { fetchUser, logoutUser } from './user/userActions';

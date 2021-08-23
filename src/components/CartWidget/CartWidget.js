@@ -15,7 +15,8 @@ export const CartWidget = ({ cart }) => {
     setTimeout(() => {
       setAnimateCount("");
     }, 1000);
-    setCount(cart.items.length);
+
+    if (typeof cart.items !== "undefined") setCount(cart.items.length);
   }, [cart.items]);
 
   return (

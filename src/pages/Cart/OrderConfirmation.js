@@ -8,8 +8,8 @@ import { clearCart, removeFromCart } from "../../redux/";
 import { useHistory } from "react-router";
 
 function OrderConfirmation({ items, removeFromCart }) {
-  const [name, setName] = useState("test");
-  const [phone, setPhone] = useState("test");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
 
   const history = useHistory();
 

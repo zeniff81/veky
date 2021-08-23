@@ -1,38 +1,22 @@
-.product {
-  align-items: stretch;
-  align-self: center;
-  background: white;
-  border-radius: 0.5rem;
-  box-shadow: 1px 1px 7px #a2a2a2;
-  display: flex;
-  height: 200px;
-  margin: 2rem 2rem;
-  width: 350px;
-  overflow: hidden;
+The package exports an array of strings. Each string is an identifier
+for a license exception under the [Software Package Data Exchange
+(SPDX)][SPDX] software license metadata standard.
 
-  .product-image {
-    object-fit: cover;
-    width: 10rem;
-  }
-  .product-details {
-    margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .product-title {
-    @include lhCrop(1.6);
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-  }
-  .product-price {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-  }
+[SPDX]: https://spdx.org
 
-  .btn-primary {
-    margin-top: 1rem;
-  }
-}
+## Copyright and Licensing
+
+### SPDX
+
+"SPDX" is a federally registered United States trademark of The Linux
+Foundation Corporation.
+
+From version 2.0 of the [SPDX] specification:
+
+> Copyright © 2010-2015 Linux Foundation and its Contributors. Licensed
+> under the Creative Commons Attribution License 3.0 Unported. All other
+> rights are expressly reserved.
+
+The Linux Foundation and the SPDX working groups are good people. Only
+they decide what "SPDX" means, as a standard and otherwise. I respect
+th

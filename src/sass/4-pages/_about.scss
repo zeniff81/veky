@@ -1,96 +1,35 @@
-.about {
-  position: relative;
-  align-items: center;
-  margin: 0 auto;
-  margin-bottom: 2rem;
-  display: grid;
-  grid-template-areas:
-    "image"
-    "text";
-  justify-items: center;
+'use strict';
+const TEMPLATE_REGEX = /(?:\\(u[a-f\d]{4}|x[a-f\d]{2}|.))|(?:\{(~)?(\w+(?:\([^)]*\))?(?:\.\w+(?:\([^)]*\))?)*)(?:[ \t]|(?=\r?\n)))|(\})|((?:.|[\r\n\f])+?)/gi;
+const STYLE_REGEX = /(?:^|\.)(\w+)(?:\(([^)]*)\))?/g;
+const STRING_REGEX = /^(['"])((?:\\.|(?!\1)[^\\])*)\1$/;
+const ESCAPE_REGEX = /\\(u[a-f\d]{4}|x[a-f\d]{2}|.)|([^\\])/gi;
 
-  img {
-    max-width: 768px;
-    width: 100%;
-    grid-area: image;
-  }
+const ESCAPES = new Map([
+	['n', '\n'],
+	['r', '\r'],
+	['t', '\t'],
+	['b', '\b'],
+	['f', '\f'],
+	['v', '\v'],
+	['0', '\0'],
+	['\\', '\\'],
+	['e', '\u001B'],
+	['a', '\u0007']
+]);
 
-  .titles {
-    color: $color-primary;
-    position: absolute;
-    text-align: right;
-    right: 50%;
-    transform: translateX(70%);
-    top: 1rem;
-    grid-area: image;
-  }
+function unescape(c) {
+	if ((c[0] === 'u' && c.length === 5) || (c[0] === 'x' && c.length === 3)) {
+		return String.fromCharCode(parseInt(c.slice(1), 16));
+	}
 
-  .title1 {
-    font-size: 2.5rem;
-  }
-  .title2 {
-    font-size: 3.5rem;
-  }
-
-  .content {
-    background-color: $color-primary;
-    color: white;
-    padding: 0.01rem 0;
-    text-align: justify;
-    margin: 0;
-    position: relative;
-    grid-area: text;
-
-    h2,
-    p {
-      margin: 1rem;
-    }
-  }
-
-  .content::before {
-    content: "";
-    background: -webkit-linear-gradient(left, #8f6b29, #fde08d, #df9f28);
-    height: 10px;
-    width: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-  }
-}
-//- - - - - - - - - - - - - - - - tablet 768px - - - - - - - - - - - - - - - - - -
-//- - - - - - - - - - - - - - - - laptop 1024 px - - - - - - - - - - - - - - - - -
-@media screen and (min-width: 1024px) {
-  .about {
-    grid-template-areas: "image text";
-    grid-template-columns: 40% 60%;
-
-    .titles {
-      grid-area: text;
-      display: flex;
-      transform: translateX(30%) scale(1.2);
-    }
-
-    .content {
-      position: absolute;
-      bottom: 0;
-    }
-  }
-}
-@media screen and (min-width: 1300px) {
-  .about {
-    .titles {
-      margin-top: 70px;
-      transform: translateX(30%) scale(2);
-    }
-  }
+	return ESCAPES.get(c) || c;
 }
 
-@media screen and (min-width: 1700px) {
-  .about {
-    .titles {
-      margin-top: 120px;
-      transform: translateX(30%) scale(2.2);
-    }
-  }
-}
-//- - - - - - - - - - - - - - - - widescreen 1440px  - - - - - - - - - - - - - - -
+function parseArguments(name, args) {
+	const results = [];
+	const chunks = args.trim().split(/\s*,\s*/g);
+	let matches;
+
+	for (const chunk of chunks) {
+		if (!isNaN(chunk)) {
+			results.push(Number(

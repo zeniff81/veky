@@ -1,52 +1,20 @@
-.products {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  scroll-behavior: smooth;
+The MIT License (MIT)
 
-  // title
-  > .title {
-    color: $color-primary;
+Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
 
-    font-size: 1.7rem;
-    margin: 1rem 0;
-    text-align: center;
-  }
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-  // search
-  .search {
-    display: flex;
-    justify-content: stretch;
-    margin: 1rem 0;
-    width: calc(100% - 4rem);
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-    input {
-      border: 1px solid $color-primary;
-      display: flex;
-      flex: 1;
-    }
-  }
-
-  //   catalog
-  .catalog {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  //- - - - - - - - - - - - - - - - tablet 768px - - - - - - - - - - - - - - - - - -
-  @media screen and (min-width: 768px) {
-    .search {
-      width: 400px;
-    }
-  }
-
-  .catalog {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  //- - - - - - - - - - - - - - - - laptop 1024 px - - - - - - - - - - - - - - - - -
-  //- - - - - - - - - - - - - - - - widescreen 1440px  - - - - - - - - - - - - - - -
-}
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+O

@@ -7,4 +7,20 @@
 
     padding-bottom: 1rem;
   }
+
+  button {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 20px;
+    margin: 1rem;
+  }
+
+  .bar {
+    border: 2px solid white;
+    margin: 1rem;
+    height: 5rem;
+    width: 5rem;
+  }
 }

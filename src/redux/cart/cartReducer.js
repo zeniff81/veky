@@ -8,13 +8,6 @@ import {
   FETCH_CART_REQUEST
 } from "./cartTypes";
 
-const loadItemsFromStorage = () => {
-  console.log(`typeof localStorage.items`, typeof localStorage.items);
-  if (typeof localStorage.items === "undefined") return [];
-
-  return JSON.parse(localStorage.items || "[]");
-};
-
 const initialState = {
   discountPercentage: 0,
   discountAbsolute: 0,

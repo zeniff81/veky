@@ -24,9 +24,10 @@ const fetchUserSuccess = payload => {
   };
 };
 
-const fetchUserFailure = () => {
+const fetchUserFailure = error => {
   return {
-    type: FETCH_USER_FAILURE
+    type: FETCH_USER_FAILURE,
+    payload: error
   };
 };
 
@@ -57,7 +58,12 @@ export const fetchUser = ({ email, password }) => {
         config
       )
       .then(response => {
-        dispatch(fetchUserSuccess(response.data));
+        console.log(`response.data`, response.data);
+        const { success, message } = response.data;
+
+        if (success) dispatch(fetchUserSuccess(response.data));
+
+        if (!success) dispatch(fetchUserFailure({ error: message }));
       })
       .catch(err => {
         dispatch(fetchUserFailure(err));
@@ -87,10 +93,11 @@ export const logoutUser = (_id, username, items) => {
     dispatch(logoutUserRequest);
 
     try {
-      const response = await axios.post(
-        `${SERVER_URL}/api/auth/savelocalstorageitems`,
-        { _id, username, items }
-      );
+      await axios.post(`${SERVER_URL}/api/auth/savelocalstorageitems`, {
+        _id,
+        username,
+        items
+      });
 
       // delete localStorage
       localStorage.removeItem("items");

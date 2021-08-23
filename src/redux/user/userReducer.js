@@ -3,19 +3,18 @@ import {
   FETCH_USER_SUCCESS,
   FETCH_USER_FAILURE,
   WHO_AM_I,
-  LOGOUT_USER,
   LOGOUT_USER_REQUEST,
   LOGOUT_USER_SUCCESS,
   LOGOUT_USER_FAILURE
 } from "./userTypes";
-import { handleLocalStorageItemsToServer as handleLocalStorageItemsToServer } from "./utils";
 
 const initialState = {
   username: "invitado",
   _id: null,
   roles: ["guest"],
   isLogged: false,
-  loading: false
+  loading: false,
+  error: null
 };
 
 const userReducer = (state = initialState, action) => {
@@ -23,7 +22,8 @@ const userReducer = (state = initialState, action) => {
     case FETCH_USER_REQUEST:
       return {
         ...state,
-        loading: true
+        loading: true,
+        error: null
       };
 
     case FETCH_USER_SUCCESS:
@@ -34,14 +34,16 @@ const userReducer = (state = initialState, action) => {
         _id: action.payload.user._id,
         roles: action.payload.user.role,
         isLogged: true,
-        loading: false
+        loading: false,
+        error: null
       };
 
     case FETCH_USER_FAILURE:
       return {
         ...state,
         loading: false,
-        isLogged: false
+        isLogged: false,
+        error: action.payload.error
       };
 
     case WHO_AM_I:
@@ -61,7 +63,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         username: "invitado",
-        id: "",
+        _id: null,
         roles: ["guest"],
         isLogged: false,
         loading: false

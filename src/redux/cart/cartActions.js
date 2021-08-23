@@ -42,7 +42,6 @@ export const clearCart = () => {
 // fetch cart
 
 const fetchCartRequest = payload => {
-  console.log("fetchCartRequest");
   return {
     type: FETCH_CART_REQUEST
   };
@@ -61,7 +60,7 @@ const fetchCartFailure = payload => {
   };
 };
 
-export const fetchCart = id_to_find => {
+export const fetchCart = _id => {
   return function (dispatch) {
     dispatch(fetchCartRequest());
 
@@ -71,8 +70,6 @@ export const fetchCart = id_to_find => {
       }
     };
 
-    console.log(`before axios: fetchCart id_to_find`, id_to_find);
-    let _id = id_to_find;
     axios
       .post(
         `${SERVER_URL}/api/auth/fetchlocalstorageitems`,
